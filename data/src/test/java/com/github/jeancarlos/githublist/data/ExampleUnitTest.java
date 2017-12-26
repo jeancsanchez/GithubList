@@ -1,8 +1,8 @@
-package com.github.data;
+package com.github.jeancarlos.githublist.data;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

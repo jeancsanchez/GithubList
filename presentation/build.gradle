@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-        applicationId "com.jeancarlos.githublist"
+        applicationId "com.github.jeancarlos.githublist"
         minSdkVersion sdk.minSdkVersion
         targetSdkVersion sdk.targetSdkVersion
         versionCode app.versionCode

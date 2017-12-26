@@ -10,6 +10,6 @@ import dagger.Subcomponent
  * Jesus loves you.
  */
 @FragmentScope
-@Subcomponent(modules = arrayOf(FragmentModule::class))
+@Subcomponent(modules = [FragmentModule::class])
 interface FragmentComponent {
 }

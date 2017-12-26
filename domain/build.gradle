@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 apply from: '../configurations.gradle'
 apply from: '../dependencies.gradle'
@@ -26,4 +27,8 @@ dependencies {
     // Tests:
     testImplementation deps.jUnit
     testImplementation deps.mockito_core
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

@@ -1,0 +1,29 @@
+/**
+ * This file represents all configurations for the project.
+ */
+
+// Execute Gradle Sync after modify it.
+def MIN_SDK_VERSION = 15
+def TARGET_SDK_VERSION = 27
+def COMPILE_SDK_VERSION = 27
+def BUILD_TOOLS_VERSION = '26.0.2'
+def JAVA_VERSION = JavaVersion.VERSION_1_8
+
+ext.sdk = [
+        minSdkVersion               : MIN_SDK_VERSION,
+        targetSdkVersion            : TARGET_SDK_VERSION,
+        compileSdkVersion           : COMPILE_SDK_VERSION,
+        buildToolsVersion           : BUILD_TOOLS_VERSION,
+        sourceCompatibilityVersion  : JAVA_VERSION,
+        targetCompatibilityVersion  : JAVA_VERSION
+]
+
+def VERSION_CODE = 1
+def REALM_SCHEMA_VERSION = "1L"
+def VERSION_NAME = "1.0.0"
+
+ext.app = [
+        versionCode                 : VERSION_CODE,
+        versionName                 : VERSION_NAME,
+        realmSchemaVersion          : REALM_SCHEMA_VERSION
+]

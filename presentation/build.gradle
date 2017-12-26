@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+apply from: '../configurations.gradle'
+apply from: '../dependencies.gradle'
+
+
+android {
+    compileSdkVersion sdk.compileSdkVersion
+    buildToolsVersion sdk.buildToolsVersion
+
+    defaultConfig {
+        vectorDrawables.useSupportLibrary = true
+        applicationId "com.jeancarlos.githublist"
+        minSdkVersion sdk.minSdkVersion
+        targetSdkVersion sdk.targetSdkVersion
+        versionCode app.versionCode
+        versionName app.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility sdk.sourceCompatibilityVersion
+        targetCompatibility sdk.targetCompatibilityVersion
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+    // Exclude dagger META files on packaging.
+    packagingOptions {
+        exclude 'META-INF/maven/com.google.dagger/dagger/pom.properties'
+        exclude 'META-INF/maven/com.google.dagger/dagger/pom.xml'
+    }
+}
+
+dependencies {
+
+    // Jar libs
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Other layers
+    api project(':domain')
+    api project(':data')
+
+    // Tests:
+    testImplementation deps.jUnit
+    testImplementation deps.mockito_core
+    testImplementation deps.powermock
+    testImplementation deps.powermockito2
+    androidTestImplementation(deps.espresso, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // Android Support:
+    implementation deps.appCompat
+    implementation deps.supportRecyclerView
+    implementation deps.supportDesign
+
+    // ButterKnife: Views injection.
+    implementation deps.butterKnife
+    annotationProcessor deps.butterKnifeCompiler
+
+    // Dagger 2:
+    implementation deps.dagger
+    annotationProcessor deps.daggerCompiler
+    compileOnly deps.javaxAnnProvided
+
+    // Reactive Programming
+    implementation deps.rxJava2
+    implementation deps.rxAndroid
+
+    // Constraint layout
+    implementation deps.constraintLayout
+}

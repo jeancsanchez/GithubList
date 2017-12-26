@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Reactive Programming
+    implementation deps.rxJava2
+    implementation deps.rxAndroid
+
+    // Javax Inject Annotation:
+    implementation deps.javaxInjectAnn
+
+    // Tests:
+    testImplementation deps.jUnit
+    testImplementation deps.mockito_core
+}

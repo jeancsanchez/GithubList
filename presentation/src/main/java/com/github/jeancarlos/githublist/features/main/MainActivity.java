@@ -1,24 +1,40 @@
 package com.github.jeancarlos.githublist.features.main;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.github.jeancarlos.githublist.R;
+import com.github.jeancarlos.githublist.base.mvp.BaseActivity;
 import com.github.jeancarlos.githublist.domain.model.User;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MainContract.View {
+import javax.inject.Inject;
+
+public class MainActivity extends BaseActivity implements MainContract.View {
+
+    @Inject
+    MainContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getAppComponent()
+                .activityComponent()
+                .inject(this);
+
+        presenter.setView(this);
     }
 
 
     @Override
-    public void showUsers(List<User> users) {
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
 
+    @Override
+    public void showUsers(List<User> users) {
     }
 }

@@ -1,5 +1,8 @@
 package com.github.jeancarlos.githublist.base.di.activity
 
+import com.github.jeancarlos.githublist.features.main.MainContract
+import com.github.jeancarlos.githublist.features.main.MainPresenter
+import dagger.Binds
 import dagger.Module
 
 
@@ -12,4 +15,6 @@ import dagger.Module
 @Module
 abstract class ActivityModule {
 
+    @Binds
+    abstract fun bindsMainPresenter(mainPresenter: MainPresenter): MainContract.Presenter
 }

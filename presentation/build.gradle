@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
 
 apply from: '../configurations.gradle'
@@ -71,7 +72,7 @@ dependencies {
 
     // Dagger 2:
     implementation deps.dagger
-    annotationProcessor deps.daggerCompiler
+    kapt deps.daggerCompiler
     compileOnly deps.javaxAnnProvided
 
     // Reactive Programming

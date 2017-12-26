@@ -1,5 +1,7 @@
 package com.github.jeancarlos.githublist.features.main;
 
+import com.github.jeancarlos.githublist.base.mvp.BasePresenter;
+import com.github.jeancarlos.githublist.base.mvp.BaseView;
 import com.github.jeancarlos.githublist.domain.model.User;
 
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
  */
 public interface MainContract {
 
-    interface View {
+    interface View extends BaseView {
 
         /**
          * Shows the user list.
@@ -23,7 +25,7 @@ public interface MainContract {
         void showUsers(List<User> users);
     }
 
-    interface Presenter {
+    interface Presenter extends BasePresenter<View> {
 
         /**
          * Notify the resume state to presenter.

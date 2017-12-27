@@ -19,19 +19,16 @@ public interface GithubRepository {
 
     /**
      * Loads all Github users.
-     *
-     * @param page The page number.
      */
-    Observable<List<User>> loadUsers(int page);
+    Observable<List<User>> loadUsers();
 
 
     /**
      * Search for an unser by query .
      *
      * @param query The query for search.
-     * @param page  The page number.
      */
-    Observable<List<User>> searchForUser(String query, int page);
+    Observable<List<User>> searchForUser(String query);
 
     /**
      * Load the user details.

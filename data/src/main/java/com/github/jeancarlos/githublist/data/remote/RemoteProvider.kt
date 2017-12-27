@@ -41,6 +41,7 @@ interface RemoteProvider {
      * Load the remote user repositories.
      *
      * @param nickname The user nickname.
+     * @param page  The page number.
      */
-    fun userRepositories(nickname: String): Observable<List<DGithubRepo>>
+    fun userRepositories(nickname: String, page: Int): Observable<List<DGithubRepo>>
 }

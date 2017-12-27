@@ -19,9 +19,9 @@ def POWERMOCK_VERSION = '1.7.1'
 def MOCKITO_CORE_VERSION = '2.8.9'
 
 // DEPENDENCY INJECTION:
-def DAGGER_VERSION ='2.11'
+def DAGGER_VERSION = '2.11'
 def BUTTER_KNIFE_VERSION = '8.4.0'
-def JAVAX_ANNOTATION_VERSION ='10.0-b28'
+def JAVAX_ANNOTATION_VERSION = '10.0-b28'
 
 // REACTIVE PROGRAMMING:
 def RX_JAVA2_VERSION = '2.1.0'
@@ -30,40 +30,45 @@ def RX_ANDROID_VERSION = '2.0.1'
 // RETROFIT:
 def RETROFIT_VERSION = '2.3.0'
 
+// DATABASE:
+def HAWK_VERSION = '2.0.1'
+
 ext.deps = [
 
         // Android Support:
-        appCompat                :     "com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION",
-        supportRecyclerView      :     "com.android.support:recyclerview-v7:$ANDROID_SUPPORT_VERSION",
-        supportDesign            :     "com.android.support:design:$ANDROID_SUPPORT_VERSION",
-        constraintLayout         :     "com.android.support.constraint:constraint-layout:$CONSTRAINT_LAYOUT_VERSION",
+        appCompat          : "com.android.support:appcompat-v7:$ANDROID_SUPPORT_VERSION",
+        supportRecyclerView: "com.android.support:recyclerview-v7:$ANDROID_SUPPORT_VERSION",
+        supportDesign      : "com.android.support:design:$ANDROID_SUPPORT_VERSION",
+        constraintLayout   : "com.android.support.constraint:constraint-layout:$CONSTRAINT_LAYOUT_VERSION",
 
         // ButterKnife: Views injection.
-        butterKnife              :     "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION",
-        butterKnifeCompiler      :     "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION",
+        butterKnife        : "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION",
+        butterKnifeCompiler: "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION",
 
         // Dagger 2:
-        dagger                   :     "com.google.dagger:dagger:$DAGGER_VERSION",
-        daggerCompiler           :     "com.google.dagger:dagger-compiler:$DAGGER_VERSION",
-        javaxAnnProvided         :     "org.glassfish:javax.annotation:$JAVAX_ANNOTATION_VERSION",
-        javaxInjectAnn           :     "javax.inject:javax.inject:1",
+        dagger             : "com.google.dagger:dagger:$DAGGER_VERSION",
+        daggerCompiler     : "com.google.dagger:dagger-compiler:$DAGGER_VERSION",
+        javaxAnnProvided   : "org.glassfish:javax.annotation:$JAVAX_ANNOTATION_VERSION",
+        javaxInjectAnn     : "javax.inject:javax.inject:1",
 
         // Reactive programming:
-        rxJava2                  :     "io.reactivex.rxjava2:rxjava:$RX_JAVA2_VERSION",
-        rxAndroid                :     "io.reactivex.rxjava2:rxandroid:$RX_ANDROID_VERSION",
+        rxJava2            : "io.reactivex.rxjava2:rxjava:$RX_JAVA2_VERSION",
+        rxAndroid          : "io.reactivex.rxjava2:rxandroid:$RX_ANDROID_VERSION",
 
         // RETROFIT:
-        retrofit                 :     "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION",
-        retrofitGsonConv         :     "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION",
-        rxJavaAdapter            :     "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION",
+        retrofit           : "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION",
+        retrofitGsonConv   : "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION",
+        rxJavaAdapter      : "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION",
 
+        // DATABASE
+        hawk               : "com.orhanobut:hawk:$HAWK_VERSION",
         // Tests:
-        jUnit                    :     "junit:junit:$JUNIT_VERSION",
-        espresso                 :     "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION",
-        mockito_all              :     "org.mockito:mockito-all:$MOCKITO_ALL_VERSION",
-        mockito_core             :     "org.mockito:mockito-core:$MOCKITO_CORE_VERSION",
-        hamcrest_all             :     "org.hamcrest:hamcrest-all:$HAMCREST_ALL_VERSION",
-        powermock                :     "org.powermock:powermock-module-junit4:$POWERMOCK_VERSION",
-        powermockito             :     "org.powermock:powermock-api-mockito:$POWERMOCK_VERSION",
-        powermockito2            :     "org.powermock:powermock-api-mockito2:$POWERMOCK_VERSION"
+        jUnit              : "junit:junit:$JUNIT_VERSION",
+        espresso           : "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION",
+        mockito_all        : "org.mockito:mockito-all:$MOCKITO_ALL_VERSION",
+        mockito_core       : "org.mockito:mockito-core:$MOCKITO_CORE_VERSION",
+        hamcrest_all       : "org.hamcrest:hamcrest-all:$HAMCREST_ALL_VERSION",
+        powermock          : "org.powermock:powermock-module-junit4:$POWERMOCK_VERSION",
+        powermockito       : "org.powermock:powermock-api-mockito:$POWERMOCK_VERSION",
+        powermockito2      : "org.powermock:powermock-api-mockito2:$POWERMOCK_VERSION"
 ]

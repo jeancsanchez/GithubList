@@ -2,7 +2,6 @@ package com.github.jeancarlos.githublist.data.remote.retrofit
 
 import com.github.jeancarlos.githublist.data.models.DGithubRepo
 import com.github.jeancarlos.githublist.data.models.DUser
-import com.github.jeancarlos.githublist.data.models.mappers.DUserMapper
 import com.github.jeancarlos.githublist.data.remote.RemoteProvider
 import com.topracha.jeancsanchez.data.repository.rest.retrofit.GithubAPI
 import io.reactivex.Observable
@@ -10,7 +9,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * This class represents an implementation of [RemoteProvider].
@@ -18,7 +16,6 @@ import javax.inject.Singleton
  * @date 27/12/17.
  * Jesus loves you.
  */
-@Singleton
 class RetrofitImpl
 @Inject constructor() : RemoteProvider {
 
@@ -49,7 +46,7 @@ class RetrofitImpl
         return service.listUsers(query = query, page = page)
     }
 
-    override fun userRepositories(nickname: String): Observable<List<DGithubRepo>> {
-        return service.userRepositories(nickname)
+    override fun userRepositories(nickname: String, page: Int): Observable<List<DGithubRepo>> {
+        return service.userRepositories(nickname = nickname, page = page)
     }
 }

@@ -31,6 +31,9 @@ dependencies {
     implementation deps.retrofitGsonConv
     implementation deps.rxJavaAdapter
 
+    // Database:
+    implementation deps.hawk
+
     // Tests:
     testImplementation deps.jUnit
     testImplementation deps.mockito_core

@@ -44,6 +44,8 @@ interface GithubAPI {
      */
     @GET("users/{nickname}/repos")
     fun userRepositories(
-            @Path("nickname") nickname: String
+            @Path("nickname") nickname: String,
+            @Query("page") page: Int? = 1,
+            @Query("per_page") perPage: Int? = PER_PAGE
     ): Observable<List<DGithubRepo>>
 }

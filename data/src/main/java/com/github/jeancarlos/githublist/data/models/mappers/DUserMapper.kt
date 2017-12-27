@@ -3,6 +3,7 @@ package com.github.jeancarlos.githublist.data.models.mappers
 import com.github.jeancarlos.githublist.data.models.DUser
 import com.github.jeancarlos.githublist.domain.base.Mapper
 import com.github.jeancarlos.githublist.domain.model.User
+import javax.inject.Inject
 
 /**
  * This class is an implementation of [Mapper] for the User on Data layer.
@@ -10,7 +11,8 @@ import com.github.jeancarlos.githublist.domain.model.User
  * @date 27/12/17.
  * Jesus loves you.
  */
-class DUserMapper : Mapper<DUser, User>() {
+class DUserMapper
+@Inject constructor() : Mapper<DUser, User>() {
 
     override fun transform(value: DUser): User =
             User(

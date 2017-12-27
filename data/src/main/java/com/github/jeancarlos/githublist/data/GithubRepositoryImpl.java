@@ -1,5 +1,6 @@
 package com.github.jeancarlos.githublist.data;
 
+
 import com.github.jeancarlos.githublist.data.local.LocalProvider;
 import com.github.jeancarlos.githublist.data.models.DGithubRepo;
 import com.github.jeancarlos.githublist.data.models.DUser;

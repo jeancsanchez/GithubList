@@ -5,10 +5,12 @@ import io.reactivex.Observable
 import javax.inject.Inject
 
 /**
+ * This class implements the [LocalProvider].
  * @author Jean Carlos (Github: @jeancsanchez)
  * @date 27/12/17.
  * Jesus loves you.
  */
+
 class LocalProviderImpl
 @Inject constructor(
         private val sharedPrefs: SharedPrefs

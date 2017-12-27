@@ -3,6 +3,7 @@ package com.github.jeancarlos.githublist.data.models.mappers
 import com.github.jeancarlos.githublist.data.models.DGithubRepo
 import com.github.jeancarlos.githublist.domain.base.Mapper
 import com.github.jeancarlos.githublist.domain.model.GithubRepo
+import javax.inject.Inject
 
 /**
  * This class is an implementation of [Mapper] for the Github repo on Data layer.
@@ -10,7 +11,8 @@ import com.github.jeancarlos.githublist.domain.model.GithubRepo
  * @date 27/12/17.
  * Jesus loves you.
  */
-class DGithubRepoMapper : Mapper<DGithubRepo, GithubRepo>() {
+class DGithubRepoMapper
+@Inject constructor() : Mapper<DGithubRepo, GithubRepo>() {
 
     override fun transform(value: DGithubRepo): GithubRepo =
             GithubRepo(

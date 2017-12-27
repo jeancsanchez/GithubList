@@ -5,10 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.jeancarlos.githublist.R;
 import com.github.jeancarlos.githublist.domain.model.User;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -68,11 +70,18 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         User user = users.get(position);
 
+        Picasso.with(context)
+                .load(user.getAvatarUrl())
+                .placeholder(R.drawable.ic_github_default_black)
+                .into(holder.imgItemUserPic);
+
         if (!user.getName().isEmpty()) {
             holder.txtUserName.setText(user.getName());
         } else {
             holder.txtUserName.setText(user.getLogin());
         }
+
+        holder.txtItemUserNick.setText(context.getString(R.string.item_user_nick, user.getLogin()));
     }
 
     @Override
@@ -82,8 +91,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        @BindView(R.id.imgItemUserPicture)
+        ImageView imgItemUserPic;
+
         @BindView(R.id.txtItemUserName)
         TextView txtUserName;
+
+        @BindView(R.id.txtItemUserNick)
+        TextView txtItemUserNick;
 
         public ViewHolder(View itemView) {
             super(itemView);

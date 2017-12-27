@@ -35,6 +35,7 @@ def HAWK_VERSION = '2.0.1'
 
 // IMAGES:
 def CIRCLE_IMAGE_VERSION = '2.2.0'
+def PICASSO_VERSION = '2.5.2'
 
 ext.deps = [
 
@@ -68,6 +69,7 @@ ext.deps = [
 
         // Images
         circleImageView     : "de.hdodenhof:circleimageview:$CIRCLE_IMAGE_VERSION",
+        picasso             : "com.squareup.picasso:picasso:$PICASSO_VERSION",
 
         // Tests:
         jUnit              : "junit:junit:$JUNIT_VERSION",

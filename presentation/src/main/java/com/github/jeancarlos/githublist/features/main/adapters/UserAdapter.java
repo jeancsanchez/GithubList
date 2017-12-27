@@ -1,4 +1,4 @@
-package com.github.jeancarlos.githublist.adapters;
+package com.github.jeancarlos.githublist.features.main.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

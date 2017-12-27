@@ -7,9 +7,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.github.jeancarlos.githublist.R;
-import com.github.jeancarlos.githublist.adapters.UserAdapter;
 import com.github.jeancarlos.githublist.base.mvp.BaseActivity;
 import com.github.jeancarlos.githublist.domain.model.User;
+import com.github.jeancarlos.githublist.features.main.adapters.UserAdapter;
+import com.github.jeancarlos.githublist.utils.PaginationScrollListener;
 
 import java.util.List;
 
@@ -31,6 +32,8 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     RecyclerView mRecViewUsers;
 
     private UserAdapter mAdapter;
+    private boolean isLoading = false;
+    private boolean isLastPage = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,28 +59,69 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         mAdapter = new UserAdapter(MainActivity.this);
 
         if (mRecViewUsers != null) {
-            mRecViewUsers.setLayoutManager(new LinearLayoutManager(
-                            MainActivity.this,
-                            LinearLayoutManager.VERTICAL,
-                            false
-                    )
+            LinearLayoutManager manager = new LinearLayoutManager(
+                    MainActivity.this,
+                    LinearLayoutManager.VERTICAL,
+                    false
             );
-        }
 
-        if (mRecViewUsers != null) {
+            mRecViewUsers.setLayoutManager(manager);
             mRecViewUsers.setAdapter(mAdapter);
+            mRecViewUsers.addOnScrollListener(new PaginationScrollListener(manager) {
+                @Override
+                protected void loadMoreItems() {
+                    showLoading();
+                    presenter.onLoadUsers();
+                }
+
+
+                @Override
+                public boolean isLastPage() {
+                    return isLastPage;
+                }
+
+                @Override
+                public boolean isLoading() {
+                    return isLoading;
+                }
+            });
         }
     }
 
 
     @Override
+    public void showLoading() {
+        isLoading = true;
+        if (mSwipeRefresh != null) {
+            mSwipeRefresh.setRefreshing(true);
+        }
+    }
+
+    @Override
+    public void hideLoading() {
+        isLoading = false;
+        if (mSwipeRefresh != null) {
+            mSwipeRefresh.setRefreshing(false);
+        }
+    }
+
+    @Override
     public void showNoContent() {
+        if (mAdapter != null && mAdapter.getItemCount() > 0) {
+            isLastPage = true;
+        } else {
+            // TODO: Show no content message.
+        }
     }
 
     @Override
     public void showUsers(List<User> users) {
         if (mAdapter != null) {
-            mAdapter.setUpItems(users);
+            if (mAdapter.getItemCount() > 0) {
+                mAdapter.addItems(users);
+            } else {
+                mAdapter.setUpItems(users);
+            }
         }
     }
 

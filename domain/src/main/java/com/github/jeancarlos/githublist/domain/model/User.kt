@@ -8,20 +8,18 @@ package com.github.jeancarlos.githublist.domain.model
  * Jesus loves you.
  */
 
-class User(
+open class User(
         val id: Int = -1,
         val name: String = "",
         val login: String? = "",
-//        avatar_url: "https://avatars0.githubusercontent.com/u/1024025?v=4"
-        avatarUrl: String? = "",
-//repos_url: "https://api.github.com/users/torvalds/repos",
-        reposUrl: String = "",
-        company: String? = "",
-        location: String? = "",
-        email: String? = "",
-        bio: String? = "",
-        public_repos: Int = 0,
-        public_gists: Int = 0,
-        followers: Int = 0,
-        following: Int = 0
+        open var avatarUrl: String? = "",
+        open var reposUrl: String? = "",
+        val company: String? = "",
+        val location: String? = "",
+        val email: String? = "",
+        val bio: String? = "",
+        open var publicRepos: Int = 0,
+        open var publicGists: Int = 0,
+        val followers: Int = 0,
+        val following: Int = 0
 )

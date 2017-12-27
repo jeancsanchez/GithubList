@@ -6,22 +6,17 @@ package com.github.jeancarlos.githublist.domain.model
  * @date 26/12/17.
  * Jesus loves you.
  */
-class GithubRepo(
+open class GithubRepo(
         val id: Int = -1,
         val name: String = "",
-//        val full_name: "torvalds/libdc-for-dirk",
-        val fullName: String = "",
+        open var fullName: String? = "",
         val private: Boolean = false,
         val description: String? = "",
         val fork: Boolean = false,
         val url: String? = "",
-//        val stargazers_count: Int = 0,
-        val stargazersCount: Int = 0,
-//        val watchers_count: Int = 0,
-        val watchersCount: Int = 0,
+        open var stargazersCount: Int = 0,
+        open var watchersCount: Int = 0,
         val language: String = "",
-//        val forks_count: Int = 0,
-        val forksCount: Int = 0,
-//        val open_issues_count: Int = 0
-        val openIssuesCount: Int = 0
+        open var forksCount: Int = 0,
+        open var openIssuesCount: Int = 0
 )

@@ -55,6 +55,7 @@ ext.deps = [
         // RETROFIT:
         retrofit                 :     "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION",
         retrofitGsonConv         :     "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION",
+        rxJavaAdapter            :     "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION",
 
         // Tests:
         jUnit                    :     "junit:junit:$JUNIT_VERSION",

@@ -29,6 +29,7 @@ dependencies {
     // Retrofit:
     implementation deps.retrofit
     implementation deps.retrofitGsonConv
+    implementation deps.rxJavaAdapter
 
     // Tests:
     testImplementation deps.jUnit

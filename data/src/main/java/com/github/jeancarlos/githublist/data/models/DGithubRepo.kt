@@ -1,6 +1,5 @@
 package com.github.jeancarlos.githublist.data.models
 
-import com.github.jeancarlos.githublist.domain.model.GithubRepo
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -9,20 +8,17 @@ import com.google.gson.annotations.SerializedName
  * @date 26/12/17.
  * Jesus loves you.
  */
-class DGithubRepo : GithubRepo() {
-
-    @SerializedName("full_name")
-    override var fullName: String? = ""
-
-    @SerializedName("stargazers_count")
-    override var stargazersCount: Int = 0
-
-    @SerializedName("watchers_count")
-    override var watchersCount: Int = 0
-
-    @SerializedName("forks_count")
-    override var forksCount: Int = 0
-
-    @SerializedName("open_issues_count")
-    override var openIssuesCount: Int = 0
-}
+class DGithubRepo(
+        val id: Int = -1,
+        val name: String = "",
+        @SerializedName("full_name") val fullName: String? = "",
+        val private: Boolean = false,
+        val description: String? = "",
+        val fork: Boolean = false,
+        val url: String? = "",
+        @SerializedName("stargazers_count") val stargazersCount: Int = 0,
+        @SerializedName("watchers_count") val watchersCount: Int = 0,
+        val language: String = "",
+        @SerializedName("forks_count") val forksCount: Int = 0,
+        @SerializedName("open_issues_count") val openIssuesCount: Int = 0
+)

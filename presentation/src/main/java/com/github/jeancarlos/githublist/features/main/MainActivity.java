@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.github.jeancarlos.githublist.R;
+import com.github.jeancarlos.githublist.adapters.UserAdapter;
 import com.github.jeancarlos.githublist.base.mvp.BaseActivity;
 import com.github.jeancarlos.githublist.domain.model.User;
 

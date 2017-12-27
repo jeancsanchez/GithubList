@@ -1,4 +1,4 @@
-package com.github.jeancarlos.githublist.features.main;
+package com.github.jeancarlos.githublist.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -23,7 +23,7 @@ import static java.util.Collections.emptyList;
  * Jesus loves you.
  */
 
-class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
     private Context context;
     private List<User> users = emptyList();

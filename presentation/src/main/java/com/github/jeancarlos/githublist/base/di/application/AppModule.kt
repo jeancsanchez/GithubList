@@ -2,9 +2,8 @@ package com.github.jeancarlos.githublist.base.di.application
 
 
 import android.content.Context
-import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import com.github.jeancarlos.githublist.base.BaseApp
+import com.github.jeancarlos.githublist.data.local.database.SharedPrefs
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -20,19 +19,13 @@ class AppModule(private val application: BaseApp) {
 
     @Provides
     @Singleton
-    internal fun providesApplication(): BaseApp {
-        return application
-    }
+    internal fun providesApplication(): BaseApp = application
 
     @Provides
     @Singleton
-    internal fun providesContext(): Context {
-        return application
-    }
+    internal fun providesContext(): Context = application.applicationContext
 
     @Provides
     @Singleton
-    internal fun providesSharedPrefs(context: Context): SharedPreferences {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-    }
+    internal fun providesSharedPrefs(context: Context): SharedPrefs = SharedPrefs(context)
 }

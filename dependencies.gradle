@@ -33,6 +33,9 @@ def RETROFIT_VERSION = '2.3.0'
 // DATABASE:
 def HAWK_VERSION = '2.0.1'
 
+// IMAGES:
+def CIRCLE_IMAGE_VERSION = '2.2.0'
+
 ext.deps = [
 
         // Android Support:
@@ -62,6 +65,10 @@ ext.deps = [
 
         // DATABASE
         hawk               : "com.orhanobut:hawk:$HAWK_VERSION",
+
+        // Images
+        circleImageView     : "de.hdodenhof:circleimageview:$CIRCLE_IMAGE_VERSION",
+
         // Tests:
         jUnit              : "junit:junit:$JUNIT_VERSION",
         espresso           : "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION",

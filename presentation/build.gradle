@@ -81,6 +81,11 @@ dependencies {
 
     // Constraint layout
     implementation deps.constraintLayout
+
+    // Circle image view
+    implementation deps.circleImageView
+
+    // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {

@@ -29,6 +29,7 @@ def RX_ANDROID_VERSION = '2.0.1'
 
 // RETROFIT:
 def RETROFIT_VERSION = '2.3.0'
+def LOGGING_INTERCEPTOR_VERSION = '3.8.0'
 
 // DATABASE:
 def HAWK_VERSION = '2.0.1'
@@ -63,6 +64,7 @@ ext.deps = [
         retrofit           : "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION",
         retrofitGsonConv   : "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION",
         rxJavaAdapter      : "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION",
+        loggingInterceptor : "com.squareup.okhttp3:logging-interceptor:$LOGGING_INTERCEPTOR_VERSION",
 
         // DATABASE
         hawk               : "com.orhanobut:hawk:$HAWK_VERSION",

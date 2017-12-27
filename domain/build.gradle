@@ -12,6 +12,11 @@ android {
         minSdkVersion sdk.minSdkVersion
         targetSdkVersion sdk.targetSdkVersion
     }
+
+    compileOptions {
+        sourceCompatibility sdk.sourceCompatibilityVersion
+        targetCompatibility sdk.targetCompatibilityVersion
+    }
 }
 
 dependencies {

@@ -12,6 +12,11 @@ android {
         minSdkVersion sdk.minSdkVersion
         targetSdkVersion sdk.targetSdkVersion
     }
+
+    compileOptions {
+        sourceCompatibility sdk.sourceCompatibilityVersion
+        targetCompatibility sdk.targetCompatibilityVersion
+    }
 }
 
 dependencies {
@@ -31,6 +36,8 @@ dependencies {
     implementation deps.retrofit
     implementation deps.retrofitGsonConv
     implementation deps.rxJavaAdapter
+    implementation deps.loggingInterceptor
+
 
     // Database:
     implementation deps.hawk

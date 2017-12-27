@@ -35,7 +35,7 @@ class RetrofitImpl
     }
 
     override fun listUsers(page: Int): Observable<List<DUser>> {
-        return service.listUsers(page = page)
+        return service.listAllUsers(page = page)
     }
 
     override fun userDetails(nickname: String): Observable<DUser> {
@@ -43,7 +43,7 @@ class RetrofitImpl
     }
 
     override fun searchForUser(query: String, page: Int): Observable<List<DUser>> {
-        return service.listUsers(query = query, page = page)
+        return service.searchUsers(query = query, page = page)
     }
 
     override fun userRepositories(nickname: String, page: Int): Observable<List<DGithubRepo>> {

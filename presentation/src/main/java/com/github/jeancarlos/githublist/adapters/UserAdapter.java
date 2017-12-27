@@ -68,7 +68,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position) {
         User user = users.get(position);
 
-        holder.txtUserName.setText(user.getName());
+        if (!user.getName().isEmpty()) {
+            holder.txtUserName.setText(user.getName());
+        } else {
+            holder.txtUserName.setText(user.getLogin());
+        }
     }
 
     @Override

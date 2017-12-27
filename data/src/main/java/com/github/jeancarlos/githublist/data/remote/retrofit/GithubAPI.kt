@@ -23,7 +23,19 @@ interface GithubAPI {
      * @param perPage The total per page.
      */
     @GET("search/users")
-    fun listUsers(
+    fun searchUsers(
+            @Query("q") query: String? = "",
+            @Query("page") page: Int? = 1,
+            @Query("per_page") perPage: Int? = PER_PAGE
+    ): Observable<List<DUser>>
+
+    /**
+     * Gets all Github users.
+     * @param page The initial page.
+     * @param perPage The total per page.
+     */
+    @GET("users")
+    fun listAllUsers(
             @Query("q") query: String? = "",
             @Query("page") page: Int? = 1,
             @Query("per_page") perPage: Int? = PER_PAGE

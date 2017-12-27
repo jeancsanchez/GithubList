@@ -43,7 +43,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
         presenter.setView(this);
         setupRecyclerView();
-        mSwipeRefresh.setOnRefreshListener(() -> presenter.onLoadUsers());
+
+        if (mSwipeRefresh != null) {
+            mSwipeRefresh.setOnRefreshListener(() -> presenter.onLoadUsers());
+        }
     }
 
     /**
@@ -51,19 +54,24 @@ public class MainActivity extends BaseActivity implements MainContract.View {
      */
     private void setupRecyclerView() {
         mAdapter = new UserAdapter(MainActivity.this);
-        mRecViewUsers.setLayoutManager(new LinearLayoutManager(
-                        MainActivity.this,
-                        LinearLayoutManager.VERTICAL,
-                        false
-                )
-        );
-        mRecViewUsers.setAdapter(mAdapter);
+
+        if (mRecViewUsers != null) {
+            mRecViewUsers.setLayoutManager(new LinearLayoutManager(
+                            MainActivity.this,
+                            LinearLayoutManager.VERTICAL,
+                            false
+                    )
+            );
+        }
+
+        if (mRecViewUsers != null) {
+            mRecViewUsers.setAdapter(mAdapter);
+        }
     }
 
 
     @Override
     public void showNoContent() {
-
     }
 
     @Override

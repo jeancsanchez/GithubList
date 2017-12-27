@@ -16,7 +16,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import io.reactivex.functions.Function;
 
 /**
  * This class represents an implementation of {@link GithubRepository}
@@ -49,65 +48,92 @@ public class GithubRepositoryImpl implements GithubRepository {
 
     @Override
     public Observable<List<User>> loadUsers() {
-        return remoteProvider.listUsers(nextPage())
-                .map(new Function<List<DUser>, List<User>>() {
-                    @Override
-                    public List<User> apply(List<DUser> dUsers) throws Exception {
-                        return dUserMapper.transform(dUsers);
-                    }
+        return remoteProvider.listUsers(nextUsersPage())
+                .map(dUsers -> {
+                    saveNextUsersPage(dUsers);
+                    return dUserMapper.transform(dUsers);
                 });
     }
 
 
     @Override
     public Observable<List<User>> searchForUser(String query) {
-        return remoteProvider.searchForUser(query, nextPage())
-                .map(new Function<List<DUser>, List<User>>() {
-                    @Override
-                    public List<User> apply(List<DUser> dUsers) throws Exception {
-                        return dUserMapper.transform(dUsers);
-                    }
+        return remoteProvider.searchForUser(query, nextUsersPage())
+                .map(dUsers -> {
+                    saveNextUsersPage(dUsers);
+                    return dUserMapper.transform(dUsers);
                 });
     }
 
     @Override
     public Observable<User> userDetails(String nickname) {
         return remoteProvider.userDetails(nickname)
-                .map(new Function<DUser, User>() {
-                    @Override
-                    public User apply(DUser dUser) throws Exception {
-                        return dUserMapper.transform(dUser);
-                    }
-                });
+                .map(dUser -> dUserMapper.transform(dUser));
     }
 
     @Override
     public Observable<List<GithubRepo>> userRepositories(String nickname) {
-        return remoteProvider.userRepositories(nickname, nextPage())
-                .map(new Function<List<DGithubRepo>, List<GithubRepo>>() {
-                    @Override
-                    public List<GithubRepo> apply(List<DGithubRepo> dGithubRepos) throws Exception {
-                        return dGithubRepoMapper.transform(dGithubRepos);
-                    }
+        return remoteProvider.userRepositories(nickname, nextReposPage())
+                .map(dGithubRepos -> {
+                    saveNextReposPage(dGithubRepos);
+                    return dGithubRepoMapper.transform(dGithubRepos);
                 });
     }
 
     /**
-     * Gets the next page and save it.
+     * Gets the next users page.
      *
      * @return The next page.
      */
-    private int nextPage() {
-        int currentPage;
+    private int nextUsersPage() {
+        int nextPage;
 
         try {
-            currentPage = localProvider.getCurrentPage().blockingFirst();
+            nextPage = localProvider.getNextUsersPage().blockingFirst();
         } catch (Exception exception) {
-            currentPage = 0;
+            nextPage = 0;
         }
 
-        int nextPage = ++currentPage;
-        localProvider.saveCurrentPage(nextPage);
         return nextPage;
+    }
+
+    /**
+     * Gets the next repositories page.
+     *
+     * @return The next page.
+     */
+    private int nextReposPage() {
+        int nextPage;
+
+        try {
+            nextPage = localProvider.getNextReposPage().blockingFirst();
+        } catch (Exception exception) {
+            nextPage = 0;
+        }
+
+        return nextPage;
+    }
+
+    /**
+     * Saves the next users page, based the last id.
+     *
+     * @param dUsers The users list.
+     */
+    private void saveNextUsersPage(List<DUser> dUsers) {
+        localProvider
+                .saveNextUsersPage(dUsers.get(dUsers.size() - 1).getId())
+                .blockingFirst();
+    }
+
+
+    /**
+     * Saves the next repos page, based the last id.
+     *
+     * @param dRepositories The repositories list.
+     */
+    private void saveNextReposPage(List<DGithubRepo> dRepositories) {
+        localProvider
+                .saveNextReposPage(dRepositories.get(dRepositories.size() - 1).getId())
+                .blockingFirst();
     }
 }

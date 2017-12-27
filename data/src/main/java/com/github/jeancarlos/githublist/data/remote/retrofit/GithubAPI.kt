@@ -1,8 +1,7 @@
-package com.topracha.jeancsanchez.data.repository.rest.retrofit
+package com.github.jeancarlos.githublist.data.remote.retrofit
 
 import com.github.jeancarlos.githublist.data.models.DGithubRepo
 import com.github.jeancarlos.githublist.data.models.DUser
-import com.github.jeancarlos.githublist.data.remote.retrofit.PER_PAGE
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -19,26 +18,21 @@ interface GithubAPI {
     /**
      * Searches for users by query.
      * @param query The search query.
-     * @param page The initial page.
-     * @param perPage The total per page.
+     * @param since Since the page.
      */
     @GET("search/users")
     fun searchUsers(
             @Query("q") query: String? = "",
-            @Query("page") page: Int? = 1,
-            @Query("per_page") perPage: Int? = PER_PAGE
+            @Query("since") since: Int? = 0
     ): Observable<List<DUser>>
 
     /**
      * Gets all Github users.
-     * @param page The initial page.
-     * @param perPage The total per page.
+     * @param since Since the page.
      */
     @GET("users")
     fun listAllUsers(
-            @Query("q") query: String? = "",
-            @Query("page") page: Int? = 1,
-            @Query("per_page") perPage: Int? = PER_PAGE
+            @Query("since") since: Int? = 0
     ): Observable<List<DUser>>
 
     /**
@@ -53,11 +47,11 @@ interface GithubAPI {
     /**
      * Gets the user repositories by the user nickname.
      * @param nickname The user nickname.
+     * @param since Since the page.
      */
     @GET("users/{nickname}/repos")
     fun userRepositories(
             @Path("nickname") nickname: String,
-            @Query("page") page: Int? = 1,
-            @Query("per_page") perPage: Int? = PER_PAGE
+            @Query("since") since: Int? = 0
     ): Observable<List<DGithubRepo>>
 }

@@ -7,8 +7,7 @@ import com.orhanobut.hawk.Hawk;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
+import kotlin.Unit;
 
 
 /**
@@ -20,7 +19,8 @@ import io.reactivex.ObservableOnSubscribe;
  */
 public class SharedPrefs {
 
-    private final String CURR_PAGE_KEY = "com.github.jeancarlos.githublist.data.local.CURR_PAGE_KEY";
+    private final String NEXT_USERS_PAGE_KEY = "com.github.jeancarlos.githublist.data.local.NEXT_USERS_PAGE_KEY";
+    private final String NEXT_REPOS_PAGE_KEY = "com.github.jeancarlos.githublist.data.local.NEXT_REPOS_PAGE_KEY";
 
     @Inject
     public SharedPrefs(Context context) {
@@ -28,31 +28,65 @@ public class SharedPrefs {
     }
 
     /**
-     * Puts the current page index.
+     * Puts the next users page index.
      *
-     * @param currentPage The current page index.
+     * @param nextPage The next page index.
      */
-    public void putCurrentPage(int currentPage) {
-        Hawk.put(CURR_PAGE_KEY, currentPage);
+    public void putNextUsersPage(int nextPage) {
+        Hawk.put(NEXT_USERS_PAGE_KEY, nextPage);
     }
 
 
     /**
-     * Gets the current page index.
+     * Gets the next users page index.
      *
-     * @return An observable with the current page index.
+     * @return An observable with the next page index.
      */
-    public Observable<Integer> getCurrentPage() {
-        return Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
-                try {
-                    emitter.onNext(Hawk.get(CURR_PAGE_KEY, 0));
-                    emitter.onComplete();
-                } catch (Exception exception) {
-                    emitter.onError(exception);
-                }
+    public Observable<Integer> getNextUsersPage() {
+        return Observable.create(emitter -> {
+            try {
+                emitter.onNext(Hawk.get(NEXT_USERS_PAGE_KEY, 0));
+                emitter.onComplete();
+            } catch (Exception exception) {
+                emitter.onError(exception);
             }
+        });
+    }
+
+    /**
+     * Puts the next repositories page index.
+     *
+     * @param nextPage The next page index.
+     */
+    public void putNextReposPage(int nextPage) {
+        Hawk.put(NEXT_REPOS_PAGE_KEY, nextPage);
+    }
+
+
+    /**
+     * Gets the next repositories page index.
+     *
+     * @return An observable with the next page index.
+     */
+    public Observable<Integer> getNextReposPage() {
+        return Observable.create(emitter -> {
+            try {
+                emitter.onNext(Hawk.get(NEXT_REPOS_PAGE_KEY, 0));
+                emitter.onComplete();
+            } catch (Exception exception) {
+                emitter.onError(exception);
+            }
+        });
+    }
+
+    /**
+     * Clear all the data.
+     */
+    public Observable<Unit> clearAll() {
+        return Observable.fromCallable(() -> {
+            Hawk.delete(NEXT_REPOS_PAGE_KEY);
+            Hawk.delete(NEXT_USERS_PAGE_KEY);
+            return null;
         });
     }
 }

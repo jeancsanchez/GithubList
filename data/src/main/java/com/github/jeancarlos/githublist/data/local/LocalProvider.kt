@@ -11,14 +11,29 @@ import io.reactivex.Observable
 interface LocalProvider {
 
     /**
-     * Saves the current page
+     * Saves the next users page
      * @param page The current page.
      */
-    fun saveCurrentPage(page: Int): Observable<Unit>
-
+    fun saveNextUsersPage(page: Int): Observable<Unit>
 
     /**
-     * Gets the current page.
+     * Gets the next users page.
      */
-    fun getCurrentPage(): Observable<Int>
+    fun getNextUsersPage(): Observable<Int>
+
+    /**
+     * Saves the next repositories page
+     * @param page The current page.
+     */
+    fun saveNextReposPage(page: Int): Observable<Unit>
+
+    /**
+     * Gets the next repositories page.
+     */
+    fun getNextReposPage(): Observable<Int>
+
+    /**
+     * Clear all data.
+     */
+    fun clear(): Observable<Unit>
 }

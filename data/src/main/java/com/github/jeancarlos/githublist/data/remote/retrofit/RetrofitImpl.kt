@@ -3,8 +3,9 @@ package com.github.jeancarlos.githublist.data.remote.retrofit
 import com.github.jeancarlos.githublist.data.models.DGithubRepo
 import com.github.jeancarlos.githublist.data.models.DUser
 import com.github.jeancarlos.githublist.data.remote.RemoteProvider
-import com.topracha.jeancsanchez.data.repository.rest.retrofit.GithubAPI
 import io.reactivex.Observable
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,18 +25,25 @@ class RetrofitImpl
     }
 
     private var service: GithubAPI
+    private val okHttpClient by lazy {
+        OkHttpClient.Builder()
+                .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+                .build()
+    }
+
     private val retrofit = Retrofit
             .Builder()
             .baseUrl(BASE_URL)
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
 
     init {
         service = retrofit.build().create(GithubAPI::class.java)
     }
 
     override fun listUsers(page: Int): Observable<List<DUser>> {
-        return service.listAllUsers(page = page)
+        return service.listAllUsers(since = page)
     }
 
     override fun userDetails(nickname: String): Observable<DUser> {
@@ -43,10 +51,10 @@ class RetrofitImpl
     }
 
     override fun searchForUser(query: String, page: Int): Observable<List<DUser>> {
-        return service.searchUsers(query = query, page = page)
+        return service.searchUsers(query = query, since = page)
     }
 
     override fun userRepositories(nickname: String, page: Int): Observable<List<DGithubRepo>> {
-        return service.userRepositories(nickname = nickname, page = page)
+        return service.userRepositories(nickname = nickname, since = page)
     }
 }

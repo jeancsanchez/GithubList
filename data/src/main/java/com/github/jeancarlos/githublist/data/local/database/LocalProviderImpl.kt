@@ -16,9 +16,17 @@ class LocalProviderImpl
         private val sharedPrefs: SharedPrefs
 ) : LocalProvider {
 
-    override fun saveCurrentPage(page: Int): Observable<Unit> {
-        return Observable.fromCallable { sharedPrefs.putCurrentPage(page) }
+    override fun saveNextUsersPage(page: Int): Observable<Unit> {
+        return Observable.fromCallable { sharedPrefs.putNextUsersPage(page) }
     }
 
-    override fun getCurrentPage(): Observable<Int> = sharedPrefs.currentPage
+    override fun getNextUsersPage(): Observable<Int> = sharedPrefs.nextUsersPage
+
+    override fun saveNextReposPage(page: Int): Observable<Unit> {
+        return Observable.fromCallable { sharedPrefs.putNextReposPage(page) }
+    }
+
+    override fun getNextReposPage(): Observable<Int> = sharedPrefs.nextReposPage
+
+    override fun clear(): Observable<Unit> = sharedPrefs.clearAll()
 }

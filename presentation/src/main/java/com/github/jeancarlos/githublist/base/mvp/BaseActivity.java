@@ -1,12 +1,15 @@
 package com.github.jeancarlos.githublist.base.mvp;
 
 import android.annotation.SuppressLint;
+import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 
 import com.github.jeancarlos.githublist.base.BaseApp;
 import com.github.jeancarlos.githublist.base.di.application.AppComponent;
 
 import org.jetbrains.annotations.NotNull;
+
+import butterknife.ButterKnife;
 
 /**
  * This class represents a base {@link AppCompatActivity}
@@ -26,6 +29,13 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
      */
     protected AppComponent getAppComponent() {
         return ((BaseApp) getApplication()).getComponent();
+    }
+
+
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        super.setContentView(layoutResID);
+        ButterKnife.bind(this, getWindow().getDecorView());
     }
 
     @Override

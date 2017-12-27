@@ -1,4 +1,4 @@
-package com.github.jeancarlos.githublist.domain.model;
+package com.github.jeancarlos.githublist.domain.model
 
 /**
  * This class represents an User model.
@@ -8,5 +8,6 @@ package com.github.jeancarlos.githublist.domain.model;
  * Jesus loves you.
  */
 
-public class User {
-}
+class User(
+        val name: String = ""
+)

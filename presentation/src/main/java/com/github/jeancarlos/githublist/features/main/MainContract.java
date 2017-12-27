@@ -23,6 +23,11 @@ public interface MainContract {
          * @param users the user list.
          */
         void showUsers(List<User> users);
+
+        /**
+         * Shows no content message.
+         */
+        void showNoContent();
     }
 
     interface Presenter extends BasePresenter<View> {
@@ -30,6 +35,6 @@ public interface MainContract {
         /**
          * Notify the resume state to presenter.
          */
-        void onResume();
+        void onLoadUsers();
     }
 }

@@ -2,6 +2,7 @@ package com.github.jeancarlos.githublist.base.di.application
 
 import com.github.jeancarlos.githublist.base.BaseApp
 import com.github.jeancarlos.githublist.base.di.activity.ActivityComponent
+import com.github.jeancarlos.githublist.base.di.repositories.RepositoryModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -12,7 +13,7 @@ import javax.inject.Singleton
  * Jesus loves you.
  */
 @Singleton
-@Component(modules = [AppModule::class])
+@Component(modules = [AppModule::class, RepositoryModule::class])
 interface AppComponent {
 
     fun activityComponent(): ActivityComponent

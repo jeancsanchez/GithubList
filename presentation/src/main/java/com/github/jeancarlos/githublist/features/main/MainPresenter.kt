@@ -1,6 +1,7 @@
 package com.github.jeancarlos.githublist.features.main
 
 import com.github.jeancarlos.githublist.base.di.scopes.PerActivity
+import com.github.jeancarlos.githublist.domain.interactors.GetUsersUc
 import javax.inject.Inject
 
 /**
@@ -13,12 +14,29 @@ import javax.inject.Inject
 @PerActivity
 class MainPresenter
 @Inject constructor(
-
+        private val getUsersUc: GetUsersUc
 ) : MainContract.Presenter {
 
     override var view: MainContract.View? = null
 
-    override fun onResume() {
-        view?.showUsers(emptyList())
+    override fun onLoadUsers() {
+        view?.showLoading()
+
+        getUsersUc.execute(
+                params = Unit,
+                onNext = {
+                    view?.hideLoading()
+
+                    if (it.isEmpty()) {
+                        view?.showNoContent()
+                    } else {
+                        view?.showUsers(it)
+                    }
+                },
+                onError = {
+                    view?.hideLoading()
+                    it?.let { view?.showError(it) } ?: view?.showNoContent()
+                }
+        )
     }
 }

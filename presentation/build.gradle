@@ -68,7 +68,7 @@ dependencies {
 
     // ButterKnife: Views injection.
     implementation deps.butterKnife
-    annotationProcessor deps.butterKnifeCompiler
+    kapt deps.butterKnifeCompiler
 
     // Dagger 2:
     implementation deps.dagger

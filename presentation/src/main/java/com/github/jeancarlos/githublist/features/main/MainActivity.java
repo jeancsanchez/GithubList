@@ -1,6 +1,7 @@
 package com.github.jeancarlos.githublist.features.main;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +16,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import io.reactivex.annotations.Nullable;
 
 public class MainActivity extends BaseActivity implements MainContract.View {
 

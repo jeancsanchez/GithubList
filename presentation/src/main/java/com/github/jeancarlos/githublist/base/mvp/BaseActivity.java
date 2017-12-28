@@ -1,6 +1,7 @@
 package com.github.jeancarlos.githublist.base.mvp;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 
@@ -26,6 +27,8 @@ import butterknife.ButterKnife;
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity implements BaseView {
 
+    private ProgressDialog mProgressDialog;
+
     /**
      * Gets the {@link AppComponent} instance.
      *
@@ -44,12 +47,23 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
 
     @Override
     public void showLoading() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.setTitle(null);
+            mProgressDialog.setMessage(getString(R.string.general_loading));
+        }
 
+        if (!mProgressDialog.isShowing()) {
+            mProgressDialog.show();
+        }
     }
 
     @Override
     public void hideLoading() {
-
+        if (mProgressDialog != null) {
+            mProgressDialog.dismiss();
+        }
     }
 
     @Override

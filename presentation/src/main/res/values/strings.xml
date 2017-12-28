@@ -18,5 +18,6 @@
     <string name="icon_followers_description">Followers</string>
     <string name="icon_stars_description">Stars</string>
     <string name="general_error_connection">Verify your connection.</string>
+    <string name="general_loading">Loading...</string>
 
 </resources>

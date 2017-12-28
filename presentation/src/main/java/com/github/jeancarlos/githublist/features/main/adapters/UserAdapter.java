@@ -21,6 +21,7 @@ import butterknife.ButterKnife;
 import static java.util.Collections.emptyList;
 
 /**
+ * This class represents an user adapter.
  * @author Jean Carlos (Github: @jeancsanchez)
  * @date 26/12/17.
  * Jesus loves you.

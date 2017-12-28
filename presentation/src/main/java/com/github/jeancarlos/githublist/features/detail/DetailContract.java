@@ -31,6 +31,16 @@ public interface DetailContract {
          * @param repositories The repositories list.
          */
         void showUserRepositories(List<GithubRepo> repositories);
+
+        /**
+         * Show the loading for the repositories list.
+         */
+        void showRepositoriesLoading();
+
+        /**
+         * Hide the loading for the repositories list.
+         */
+        void hideRepositoriesLoading();
     }
 
     interface Presenter extends BasePresenter<View> {

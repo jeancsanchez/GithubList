@@ -33,21 +33,23 @@ class DetailPresenter
                 },
                 onError = {
                     view?.hideLoading()
+                    it?.let { view?.showError(it) }
                 }
         )
     }
 
     override fun onLoadUserRepositories(login: String?) {
-        view?.showLoading()
+        view?.showRepositoriesLoading()
 
         getUserReposUc.execute(
                 params = login,
                 onNext = {
-                    view?.hideLoading()
+                    view?.hideRepositoriesLoading()
                     view?.showUserRepositories(it)
                 },
                 onError = {
-                    view?.hideLoading()
+                    view?.hideRepositoriesLoading()
+                    it?.let { view?.showError(it) }
                 }
         )
     }

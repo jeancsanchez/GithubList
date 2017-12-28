@@ -131,7 +131,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Sea
     @Override
     public void showLoading() {
         isLoading = true;
-        if (mSwipeRefresh != null) {
+        if (mSwipeRefresh != null && !mSwipeRefresh.isRefreshing()) {
             mSwipeRefresh.setRefreshing(true);
         }
     }

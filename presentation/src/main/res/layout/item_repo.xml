@@ -13,7 +13,7 @@
         android:background="@color/colorPrimaryDark">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/txtItemRepoTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/spacing_large"
@@ -29,7 +29,7 @@
             tools:text="GithubList" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/txtItemRepoDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/spacing_large"
@@ -42,7 +42,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemRepoTitle"
             tools:text="asfadffsaffdsfadsfasdfasdfadsfasdfasdfasdfasdfasdfadsfasdfasdfasdfasdfasdfasdfasdfadsfadsfadsfadsfa" />
 
         <ImageView
@@ -52,16 +52,16 @@
             android:layout_marginStart="@dimen/spacing_larger"
             android:layout_marginLeft="@dimen/spacing_larger"
             android:tint="@color/colorAccent"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"
-            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintBottom_toBottomOf="@+id/txtItemRepoStars"
+            app:layout_constraintEnd_toStartOf="@+id/txtItemRepoPRs"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/txtItemRepoStars"
+            app:layout_constraintTop_toTopOf="@+id/txtItemRepoStars"
             android:contentDescription="@string/icon_prs_description"
             app:srcCompat="@drawable/ic_pr" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txtItemRepoIssues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/spacing_large"
@@ -82,11 +82,11 @@
             android:layout_marginLeft="@dimen/spacing_larger"
             android:tint="@color/colorAccent"
             android:contentDescription="@string/icon_issues_description"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toStartOf="@+id/textView4"
+            app:layout_constraintBottom_toBottomOf="@+id/txtItemRepoPRs"
+            app:layout_constraintEnd_toStartOf="@+id/txtItemRepoIssues"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/textView6"
+            app:layout_constraintStart_toEndOf="@+id/txtItemRepoPRs"
+            app:layout_constraintTop_toTopOf="@+id/txtItemRepoPRs"
             app:layout_constraintVertical_bias="0.517"
             app:srcCompat="@drawable/ic_issue" />
 
@@ -101,14 +101,14 @@
             android:tint="@color/colorAccent"
             android:contentDescription="@string/icon_stars_description"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintEnd_toStartOf="@+id/txtItemRepoStars"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/txtItemRepoDescription"
             app:srcCompat="@drawable/ic_favorite" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/txtItemRepoStars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="10000"
@@ -121,7 +121,7 @@
             app:layout_constraintVertical_bias="0.517" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txtItemRepoPRs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="10000"

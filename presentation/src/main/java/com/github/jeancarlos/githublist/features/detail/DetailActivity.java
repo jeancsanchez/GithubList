@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +17,8 @@ import com.github.jeancarlos.githublist.R;
 import com.github.jeancarlos.githublist.base.mvp.BaseActivity;
 import com.github.jeancarlos.githublist.domain.model.GithubRepo;
 import com.github.jeancarlos.githublist.domain.model.User;
+import com.github.jeancarlos.githublist.features.detail.adapters.RepositoryAdapter;
+import com.github.jeancarlos.githublist.utils.PaginationScrollListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -36,6 +41,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
 
     @Inject
     DetailContract.Presenter presenter;
+
 
     @Nullable
     @BindView(R.id.imgDetailUser)
@@ -73,6 +79,19 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
     @BindView(R.id.txtDetailFollowers)
     TextView mTxtFollowersCount;
 
+    @Nullable
+    @BindView(R.id.recviewDetailRepos)
+    RecyclerView mRecViewUsers;
+
+    @Nullable
+    @BindView(R.id.swipeDetailRepos)
+    SwipeRefreshLayout mSwipeRefresh;
+
+    private RepositoryAdapter mAdapter;
+    private String mUserNickname;
+    private boolean isLoading = false;
+    private boolean isLastPage = false;
+
     /**
      * Gets a new intent for this class.
      *
@@ -101,6 +120,45 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
 
         presenter.setView(this);
         handleIntent(getIntent());
+        setupRecyclerView();
+    }
+
+    /**
+     * Initializes the recycler view and adapter.
+     */
+    private void setupRecyclerView() {
+        mAdapter = new RepositoryAdapter(DetailActivity.this);
+
+        if (mRecViewUsers != null) {
+            LinearLayoutManager manager = new LinearLayoutManager(
+                    DetailActivity.this,
+                    LinearLayoutManager.VERTICAL,
+                    false
+            );
+            mRecViewUsers.setLayoutManager(manager);
+            mRecViewUsers.setAdapter(mAdapter);
+            mRecViewUsers.addOnScrollListener(new PaginationScrollListener(manager) {
+                @Override
+                protected void loadMoreItems() {
+                    showRepositoriesLoading();
+                    presenter.onLoadUserRepositories(mUserNickname);
+                }
+
+                @Override
+                public boolean isLastPage() {
+                    return isLastPage;
+                }
+
+                @Override
+                public boolean isLoading() {
+                    return isLoading;
+                }
+            });
+        }
+
+        if (mSwipeRefresh != null) {
+            mSwipeRefresh.setOnRefreshListener(() -> presenter.onLoadUserRepositories(mUserNickname));
+        }
     }
 
     /**
@@ -110,13 +168,13 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
      */
     private void handleIntent(Intent intent) {
         try {
-            String userNickname = intent.getExtras().getString(EXTRA_USER_NICKNAME, "");
-            if (userNickname.isEmpty()) {
+            mUserNickname = intent.getExtras().getString(EXTRA_USER_NICKNAME, "");
+            if (mUserNickname.isEmpty()) {
                 throw new Exception();
             }
 
-            presenter.onLoadUserDetails(userNickname);
-            presenter.onLoadUserRepositories(userNickname);
+            presenter.onLoadUserDetails(mUserNickname);
+            presenter.onLoadUserRepositories(mUserNickname);
         } catch (Exception exception) {
             Toast.makeText(this, getString(R.string.general_error_message), Toast.LENGTH_LONG).show();
             finish();
@@ -173,8 +231,32 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
 
     @Override
     public void showUserRepositories(List<GithubRepo> repositories) {
-
+        if (mAdapter != null) {
+            if (mAdapter.getItemCount() > 0) {
+                mAdapter.addItems(repositories);
+            } else {
+                mAdapter.setUpItems(repositories);
+            }
+        }
     }
+
+    @Override
+    public void showRepositoriesLoading() {
+        isLoading = true;
+
+        if (mSwipeRefresh != null && !mSwipeRefresh.isRefreshing()) {
+            mSwipeRefresh.setRefreshing(true);
+        }
+    }
+
+    @Override
+    public void hideRepositoriesLoading() {
+        isLoading = false;
+        if (mSwipeRefresh != null) {
+            mSwipeRefresh.setRefreshing(false);
+        }
+    }
+
 
     @Override
     protected void onDestroy() {

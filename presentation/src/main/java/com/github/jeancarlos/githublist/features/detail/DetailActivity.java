@@ -46,6 +46,10 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
     TextView mTxtUserName;
 
     @Nullable
+    @BindView(R.id.txtDetailLocation)
+    TextView mTxtUserLocation;
+
+    @Nullable
     @BindView(R.id.txtDetailNickname)
     TextView mTxtUserNickname;
 
@@ -136,6 +140,10 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
 
         if (mTxtUserNickname != null) {
             mTxtUserNickname.setText(getString(R.string.item_user_nick, user.getLogin()));
+        }
+
+        if (mTxtUserLocation != null) {
+            mTxtUserLocation.setText(user.getLocation());
         }
 
         if (mImgUserPicture != null && user.getAvatarUrl() != null) {

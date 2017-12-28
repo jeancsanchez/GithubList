@@ -65,6 +65,7 @@ dependencies {
     implementation deps.appCompat
     implementation deps.supportRecyclerView
     implementation deps.supportDesign
+    implementation deps.supportCardView
 
     // ButterKnife: Views injection.
     implementation deps.butterKnife

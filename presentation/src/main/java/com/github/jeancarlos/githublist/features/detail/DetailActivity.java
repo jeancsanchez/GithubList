@@ -142,7 +142,7 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
                 @Override
                 protected void loadMoreItems() {
                     showRepositoriesLoading();
-                    presenter.onLoadUserRepositories(mUserNickname);
+//                    presenter.onLoadUserRepositories(mUserNickname);
                 }
 
                 @Override

@@ -16,7 +16,7 @@ open class GithubRepo(
         val url: String? = "",
         open var stargazersCount: Int = 0,
         open var watchersCount: Int = 0,
-        val language: String = "",
+        val language: String? = "",
         open var forksCount: Int = 0,
         open var openIssuesCount: Int = 0
 )

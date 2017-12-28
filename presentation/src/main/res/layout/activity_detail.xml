@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:layout_editor_absoluteY="81dp">
 
     <View
@@ -23,11 +24,12 @@
         android:id="@+id/imgDetailUser"
         android:layout_width="85dp"
         android:layout_height="111dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/icon_repos_description"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_github" />
@@ -71,28 +73,29 @@
         android:id="@+id/txtDetailLocation"
         android:layout_width="0dp"
         android:layout_height="19dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:maxLines="2"
         app:layout_constraintBottom_toBottomOf="@+id/imgDetailUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imgDetailUser"
-        app:layout_constraintTop_toBottomOf="@+id/txtDetailName"
-        app:layout_constraintVertical_bias="0.39999998"
+        app:layout_constraintTop_toBottomOf="@+id/txtDetailNickname"
         tools:text="Brazil, Fortaleza-CE" />
 
     <TextView
         android:id="@+id/txtDetailBio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:maxLines="3"
         android:textAlignment="inherit"
+        app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
@@ -141,11 +144,13 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="48dp"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/spacing_larger"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:tint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/txtDetailBio"
         app:layout_constraintEnd_toStartOf="@+id/txtDetailRepos"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -155,8 +160,9 @@
 
     <TextView
         android:id="@+id/txtDetailGists"
-        android:layout_width="48dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.5"
@@ -166,7 +172,7 @@
 
     <TextView
         android:id="@+id/txtDetailRepos"
-        android:layout_width="48dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
@@ -177,7 +183,7 @@
 
     <TextView
         android:id="@+id/txtDetailStars"
-        android:layout_width="48dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
@@ -188,7 +194,7 @@
 
     <TextView
         android:id="@+id/txtDetailFollowers"
-        android:layout_width="49dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
@@ -202,10 +208,7 @@
         android:id="@+id/swipeDetailRepos"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

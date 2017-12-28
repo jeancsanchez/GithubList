@@ -50,6 +50,7 @@ class DetailPresenter
                 onError = {
                     view?.hideRepositoriesLoading()
                     it?.let { view?.showError(it) }
+                    it?.printStackTrace()
                 }
         )
     }

@@ -18,7 +18,7 @@ class DGithubRepo(
         val url: String? = "",
         @SerializedName("stargazers_count") val stargazersCount: Int = 0,
         @SerializedName("watchers_count") val watchersCount: Int = 0,
-        val language: String = "",
+        val language: String? = "",
         @SerializedName("forks_count") val forksCount: Int = 0,
         @SerializedName("open_issues_count") val openIssuesCount: Int = 0
 )

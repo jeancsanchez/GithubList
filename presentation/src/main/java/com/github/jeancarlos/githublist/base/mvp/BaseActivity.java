@@ -71,9 +71,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
         String messageTitle = exception.getMessage();
         MaterialDialog.Builder dialog =
                 new MaterialDialog.Builder(this)
-                        .title(messageTitle)
-                        .autoDismiss(false)
-                        .cancelable(false);
+                        .title(messageTitle);
 
         if (messageTitle.contains("403")) {
             dialog.content(getString(R.string.general_limit_requests))

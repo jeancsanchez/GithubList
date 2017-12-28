@@ -32,7 +32,7 @@ class DetailPresenter
                     view?.showUserDetails(it)
                 },
                 onError = {
-                    view?.showLoading()
+                    view?.hideLoading()
                 }
         )
     }
@@ -47,7 +47,7 @@ class DetailPresenter
                     view?.showUserRepositories(it)
                 },
                 onError = {
-                    view?.showLoading()
+                    view?.hideLoading()
                 }
         )
     }

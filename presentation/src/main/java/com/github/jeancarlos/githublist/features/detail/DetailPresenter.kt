@@ -38,7 +38,7 @@ class DetailPresenter
         )
     }
 
-    override fun onLoadUserRepositories(login: String?) {
+    override fun onLoadUserRepositories(login: String) {
         view?.showRepositoriesLoading()
 
         getUserReposUc.execute(

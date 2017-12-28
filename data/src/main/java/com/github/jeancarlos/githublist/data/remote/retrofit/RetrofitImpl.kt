@@ -56,6 +56,6 @@ class RetrofitImpl
     }
 
     override fun userRepositories(nickname: String, page: Int): Observable<List<DGithubRepo>> {
-        return service.userRepositories(nickname = nickname, since = page)
+        return service.userRepositories(nickname = nickname)
     }
 }

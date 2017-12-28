@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimaryDark"
-    android:scrollbars="vertical">
+    android:scrollbars="vertical"
+    app:cardUseCompatPadding="true">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,39 +50,39 @@
             android:id="@+id/imageView12"
             android:layout_width="@dimen/spacing_larger"
             android:layout_height="@dimen/spacing_larger"
-            android:layout_marginStart="@dimen/spacing_larger"
-            android:layout_marginLeft="@dimen/spacing_larger"
+            android:layout_marginStart="32dp"
+            android:contentDescription="@string/icon_prs_description"
             android:tint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="@+id/txtItemRepoStars"
             app:layout_constraintEnd_toStartOf="@+id/txtItemRepoPRs"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/txtItemRepoStars"
             app:layout_constraintTop_toTopOf="@+id/txtItemRepoStars"
-            android:contentDescription="@string/icon_prs_description"
             app:srcCompat="@drawable/ic_pr" />
 
         <TextView
             android:id="@+id/txtItemRepoIssues"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/spacing_large"
-            android:layout_marginRight="@dimen/spacing_large"
-            tools:text="10000"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
             android:textColor="@color/colorAccent"
+            android:textAlignment="textStart"
+            android:gravity="start"
             app:layout_constraintBottom_toBottomOf="@+id/imageView13"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView13"
-            app:layout_constraintTop_toTopOf="@+id/imageView13" />
+            app:layout_constraintTop_toTopOf="@+id/imageView13"
+            tools:text="10000" />
 
         <ImageView
             android:id="@+id/imageView13"
             android:layout_width="@dimen/spacing_larger"
             android:layout_height="@dimen/spacing_larger"
-            android:layout_marginStart="@dimen/spacing_larger"
-            android:layout_marginLeft="@dimen/spacing_larger"
-            android:tint="@color/colorAccent"
+            android:layout_marginStart="32dp"
             android:contentDescription="@string/icon_issues_description"
+            android:tint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="@+id/txtItemRepoPRs"
             app:layout_constraintEnd_toStartOf="@+id/txtItemRepoIssues"
             app:layout_constraintHorizontal_bias="0.5"
@@ -95,11 +96,10 @@
             android:layout_width="@dimen/spacing_larger"
             android:layout_height="@dimen/spacing_larger"
             android:layout_marginBottom="@dimen/spacing_large"
-            android:layout_marginStart="@dimen/spacing_large"
-            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginStart="32dp"
             android:layout_marginTop="@dimen/spacing_large"
-            android:tint="@color/colorAccent"
             android:contentDescription="@string/icon_stars_description"
+            android:tint="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/txtItemRepoStars"
             app:layout_constraintHorizontal_bias="0.5"
@@ -111,26 +111,30 @@
             android:id="@+id/txtItemRepoStars"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="10000"
             android:textColor="@color/colorAccent"
+            android:textAlignment="textStart"
+            android:gravity="start"
             app:layout_constraintBottom_toBottomOf="@+id/imageView15"
             app:layout_constraintEnd_toStartOf="@+id/imageView12"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView15"
             app:layout_constraintTop_toTopOf="@+id/imageView15"
-            app:layout_constraintVertical_bias="0.517" />
+            app:layout_constraintVertical_bias="0.517"
+            tools:text="146" />
 
         <TextView
             android:id="@+id/txtItemRepoPRs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="10000"
             android:textColor="@color/colorAccent"
+            android:textAlignment="textStart"
+            android:gravity="start"
             app:layout_constraintBottom_toBottomOf="@+id/imageView12"
             app:layout_constraintEnd_toStartOf="@+id/imageView13"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/imageView12"
-            app:layout_constraintTop_toTopOf="@+id/imageView12" />
+            app:layout_constraintTop_toTopOf="@+id/imageView12"
+            tools:text="10000" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.v7.widget.CardView>

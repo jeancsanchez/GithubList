@@ -9,6 +9,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -155,10 +156,6 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
                 }
             });
         }
-
-        if (mSwipeRefresh != null) {
-            mSwipeRefresh.setOnRefreshListener(() -> presenter.onLoadUserRepositories(mUserNickname));
-        }
     }
 
     /**
@@ -225,7 +222,12 @@ public class DetailActivity extends BaseActivity implements DetailContract.View 
         }
 
         if (mTxtUserBio != null) {
-            mTxtUserBio.setText(user.getBio());
+            if (user.getBio() == null || (user.getBio() != null && user.getBio().isEmpty())) {
+                mTxtUserBio.setVisibility(View.GONE);
+            } else {
+                mTxtUserBio.setVisibility(View.VISIBLE);
+                mTxtUserBio.setText(user.getBio());
+            }
         }
     }
 

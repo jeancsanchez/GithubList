@@ -52,7 +52,6 @@ interface GithubAPI {
      */
     @GET("users/{nickname}/repos")
     fun userRepositories(
-            @Path("nickname") nickname: String,
-            @Query("since") since: Int? = 0
+            @Path("nickname") nickname: String
     ): Observable<List<DGithubRepo>>
 }

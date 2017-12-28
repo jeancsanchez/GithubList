@@ -56,7 +56,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView5"
             app:layout_constraintTop_toTopOf="@+id/textView5"
-            app:srcCompat="@android:drawable/stat_notify_error" />
+            app:srcCompat="@drawable/ic_pr" />
 
         <TextView
             android:id="@+id/textView4"
@@ -83,7 +83,7 @@
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="@+id/textView6"
             app:layout_constraintVertical_bias="0.517"
-            app:srcCompat="@android:drawable/stat_notify_error" />
+            app:srcCompat="@drawable/ic_issue" />
 
         <ImageView
             android:id="@+id/imageView15"

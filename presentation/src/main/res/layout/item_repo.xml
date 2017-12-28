@@ -98,7 +98,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView7"
-            app:srcCompat="@android:drawable/star_on" />
+            app:srcCompat="@drawable/ic_favorite" />
 
         <TextView
             android:id="@+id/textView5"

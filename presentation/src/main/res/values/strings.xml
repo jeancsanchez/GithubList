@@ -1,6 +1,19 @@
 <resources>
+
+    <!-- General -->
     <string name="app_name">GithubList</string>
-    <string name="item_user_nick">\@%s</string>
-    <string name="title_search_view_github">Search</string>
     <string name="general_error_message">Something went wrong! :(</string>
+
+    <!-- Main -->
+    <string name="title_search_view_github">Search</string>
+
+    <!-- Item user -->
+    <string name="item_user_nick">\@%s</string>
+
+    <!-- Icons descriptions -->
+    <string name="icon_repos_description">Repositories</string>
+    <string name="icon_gists_description">Gists</string>
+    <string name="icon_followers_description">Followers</string>
+    <string name="icon_stars_description">Stars</string>
+
 </resources>

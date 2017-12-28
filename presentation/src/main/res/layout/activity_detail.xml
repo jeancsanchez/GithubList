@@ -6,59 +6,60 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/image_cover_detail"
+        android:id="@+id/imgDetailUser"
         android:layout_width="85dp"
         android:layout_height="111dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:paddingTop="5dp"
-        android:src="@drawable/ic_github_default"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_large"
+        android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_github" />
 
     <TextView
-        android:id="@+id/text_github_title_detail"
+        android:id="@+id/txtDetailName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_normal"
         android:ems="10"
         android:maxLines="2"
         android:textColor="@android:color/black"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_github_subtitle_detail"
+        app:layout_constraintBottom_toTopOf="@+id/txtDetailNickname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/image_cover_detail"
-        app:layout_constraintTop_toTopOf="@+id/image_cover_detail"
+        app:layout_constraintStart_toEndOf="@+id/imgDetailUser"
+        app:layout_constraintTop_toTopOf="@+id/imgDetailUser"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Jean Carlos" />
 
     <TextView
-        android:id="@+id/text_github_subtitle_detail"
+        android:id="@+id/txtDetailNickname"
         android:layout_width="0dp"
         android:layout_height="19dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/spacing_large"
+        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_normal"
         android:ems="10"
         android:maxLines="2"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/txtDetailGists"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/image_cover_detail"
-        app:layout_constraintTop_toBottomOf="@+id/text_github_title_detail"
+        app:layout_constraintStart_toEndOf="@+id/imgDetailUser"
+        app:layout_constraintTop_toBottomOf="@+id/txtDetailName"
         tools:text="\@jeancsanchez" />
 
     <TextView
-        android:id="@+id/text_view_description"
+        android:id="@+id/txtDetailBio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginRight="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_normal"
         android:maxLines="3"
         android:textAlignment="inherit"
         app:layout_constraintHorizontal_bias="0.0"
@@ -69,104 +70,112 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/font_large"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        android:layout_width="@dimen/spacing_larger"
+        android:layout_height="@dimen/spacing_larger"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDetailGists"
+        app:layout_constraintEnd_toStartOf="@+id/txtDetailFollowers"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/txtDetailGists"
+        app:layout_constraintTop_toTopOf="@+id/txtDetailGists"
         app:srcCompat="@android:drawable/star_big_off" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/font_large"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
+        android:layout_width="@dimen/spacing_larger"
+        android:layout_height="@dimen/spacing_larger"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDetailRepos"
+        app:layout_constraintEnd_toStartOf="@+id/txtDetailGists"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/txtDetailRepos"
+        app:layout_constraintTop_toTopOf="@+id/txtDetailRepos"
         app:srcCompat="@android:drawable/star_big_off" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/font_large"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        android:layout_width="@dimen/spacing_larger"
+        android:layout_height="@dimen/spacing_larger"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDetailFollowers"
+        app:layout_constraintEnd_toStartOf="@+id/txtDetailFollowing"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/txtDetailFollowers"
+        app:layout_constraintTop_toTopOf="@+id/txtDetailFollowers"
         app:srcCompat="@android:drawable/star_big_off" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/font_large"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        android:layout_width="@dimen/spacing_larger"
+        android:layout_height="@dimen/spacing_larger"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginRight="@dimen/spacing_normal"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginLeft="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_normal"
+        app:layout_constraintEnd_toStartOf="@+id/txtDetailRepos"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_cover_detail"
-        app:srcCompat="@android:drawable/star_big_off" />
+        app:layout_constraintTop_toBottomOf="@+id/imgDetailUser"
+        app:srcCompat="@drawable/ic_repo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtDetailGists"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="1000"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginRight="@dimen/spacing_normal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        tools:text="1000" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtDetailRepos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="1000"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginRight="@dimen/spacing_normal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        tools:text="1000" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txtDetailFollowers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="1000"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginRight="@dimen/spacing_normal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        tools:text="1000" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/txtDetailFollowing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="1000"
+        android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginRight="@dimen/spacing_normal"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/text_github_subtitle_detail"
+        app:layout_constraintEnd_toEndOf="@+id/txtDetailNickname"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        tools:text="1000" />
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recviewDetailRepos"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/spacing_large"
+        android:layout_marginStart="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_description" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDetailBio" />
 
 </android.support.constraint.ConstraintLayout>

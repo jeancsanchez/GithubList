@@ -74,6 +74,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
                         .title(messageTitle);
 
         if (messageTitle.contains("403")) {
+            dialog.title(getString(R.string.general_limit_requests_title));
             dialog.content(getString(R.string.general_limit_requests))
                     .show();
             return;

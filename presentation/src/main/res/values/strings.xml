@@ -20,5 +20,6 @@
     <string name="icon_stars_description">Stars</string>
     <string name="icon_prs_description">Pull requests</string>
     <string name="icon_issues_description">Issues</string>
+    <string name="general_limit_requests_title">Try it later :/</string>
 
 </resources>

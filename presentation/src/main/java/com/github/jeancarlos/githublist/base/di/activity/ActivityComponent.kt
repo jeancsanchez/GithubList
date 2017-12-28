@@ -2,6 +2,7 @@ package com.github.jeancarlos.githublist.base.di.activity
 
 import com.github.jeancarlos.githublist.base.di.fragment.FragmentComponent
 import com.github.jeancarlos.githublist.base.di.scopes.PerActivity
+import com.github.jeancarlos.githublist.features.detail.DetailActivity
 import com.github.jeancarlos.githublist.features.main.MainActivity
 import com.github.jeancarlos.githublist.features.splash.SplashActivity
 import dagger.Subcomponent
@@ -21,5 +22,7 @@ interface ActivityComponent {
     fun inject(splashActivity: SplashActivity)
 
     fun inject(mainActivity: MainActivity)
+
+    fun inject(detailActivity: DetailActivity)
 
 }

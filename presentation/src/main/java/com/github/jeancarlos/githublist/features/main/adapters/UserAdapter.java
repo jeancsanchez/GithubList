@@ -31,9 +31,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     private Context mContext;
     private List<User> mUsers = emptyList();
     private ArrayList<User> mCachedUsers = new ArrayList<>();
+    private OnItemClickedListener<String> mListener;
 
     public UserAdapter(Context context) {
         mContext = context;
+    }
+
+    /**
+     * Sets the item click listener
+     *
+     * @param listener The click listener.
+     */
+    public void setOnClickListener(OnItemClickedListener<String> listener) {
+        mListener = listener;
     }
 
     /**
@@ -85,6 +95,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         }
 
         holder.txtItemUserNick.setText(mContext.getString(R.string.item_user_nick, user.getLogin()));
+
+        if (mListener != null) {
+            holder.itemView.setOnClickListener(view -> mListener.onClicked(user.getLogin()));
+        }
     }
 
     @Override

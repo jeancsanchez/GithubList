@@ -1,7 +1,9 @@
 package com.github.jeancarlos.githublist.base.di.activity
 
+import com.github.jeancarlos.githublist.features.detail.DetailContract
 import com.github.jeancarlos.githublist.features.main.MainContract
 import com.github.jeancarlos.githublist.features.main.MainPresenter
+import com.github.jeancarlos.githublist.features.splash.DetailPresenter
 import com.github.jeancarlos.githublist.features.splash.SplashContract
 import com.github.jeancarlos.githublist.features.splash.SplashPresenter
 import dagger.Binds
@@ -22,4 +24,7 @@ abstract class ActivityModule {
 
     @Binds
     abstract fun bindsMainPresenter(mainPresenter: MainPresenter): MainContract.Presenter
+
+    @Binds
+    abstract fun bindsDetailsPresenter(detailPresenter: DetailPresenter): DetailContract.Presenter
 }

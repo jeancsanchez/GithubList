@@ -2,4 +2,5 @@
     <string name="app_name">GithubList</string>
     <string name="item_user_nick">\@%s</string>
     <string name="title_search_view_github">Search</string>
+    <string name="general_error_message">Something went wrong! :(</string>
 </resources>

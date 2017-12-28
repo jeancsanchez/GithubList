@@ -20,12 +20,12 @@ import io.reactivex.Observable;
  * Jesus loves you.
  */
 @SuppressWarnings("SpellCheckingInspection")
-public class ListUserReposUc extends UseCase<String, List<GithubRepo>> {
+public class GetUserReposUc extends UseCase<String, List<GithubRepo>> {
 
     private GithubRepository githubRepository;
 
     @Inject
-    public ListUserReposUc(GithubRepository githubRepository) {
+    public GetUserReposUc(GithubRepository githubRepository) {
         this.githubRepository = githubRepository;
     }
 

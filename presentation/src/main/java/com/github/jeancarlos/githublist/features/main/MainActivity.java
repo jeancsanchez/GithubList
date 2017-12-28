@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import com.github.jeancarlos.githublist.R;
 import com.github.jeancarlos.githublist.base.mvp.BaseActivity;
 import com.github.jeancarlos.githublist.domain.model.User;
+import com.github.jeancarlos.githublist.features.detail.DetailActivity;
 import com.github.jeancarlos.githublist.features.main.adapters.UserAdapter;
 import com.github.jeancarlos.githublist.utils.PaginationScrollListener;
 import com.github.jeancarlos.githublist.utils.SuggestionProvider;
@@ -100,7 +101,6 @@ public class MainActivity extends BaseActivity implements MainContract.View, Sea
                     LinearLayoutManager.VERTICAL,
                     false
             );
-
             mRecViewUsers.setLayoutManager(manager);
             mRecViewUsers.setAdapter(mAdapter);
             mRecViewUsers.addOnScrollListener(new PaginationScrollListener(manager) {
@@ -120,6 +120,10 @@ public class MainActivity extends BaseActivity implements MainContract.View, Sea
                     return isLoading;
                 }
             });
+
+            mAdapter.setOnClickListener(nickname ->
+                    startActivity(DetailActivity.getCallingIntent(this, nickname))
+            );
         }
     }
 
@@ -222,7 +226,6 @@ public class MainActivity extends BaseActivity implements MainContract.View, Sea
         }
         return true;
     }
-
 
     /**
      * Method that saves the queries typed by user on list of the recent searches

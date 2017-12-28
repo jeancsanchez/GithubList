@@ -4,10 +4,14 @@ import android.annotation.SuppressLint;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.github.jeancarlos.githublist.R;
 import com.github.jeancarlos.githublist.base.BaseApp;
 import com.github.jeancarlos.githublist.base.di.application.AppComponent;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.net.UnknownHostException;
 
 import butterknife.ButterKnife;
 
@@ -50,6 +54,26 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
 
     @Override
     public void showError(@NotNull Throwable exception) {
+        String messageTitle = exception.getMessage();
+        MaterialDialog.Builder dialog =
+                new MaterialDialog.Builder(this)
+                        .title(messageTitle)
+                        .autoDismiss(false)
+                        .cancelable(false);
 
+        if (messageTitle.contains("403")) {
+            dialog.content(getString(R.string.general_limit_requests))
+                    .show();
+            return;
+        }
+
+        if (exception instanceof UnknownHostException || messageTitle.contains("404")) {
+            dialog.content(getString(R.string.general_error_connection))
+                    .show();
+            return;
+        }
+
+        dialog.content(getString(R.string.general_error_message))
+                .show();
     }
 }

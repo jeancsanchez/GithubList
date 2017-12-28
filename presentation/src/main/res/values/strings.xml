@@ -3,6 +3,8 @@
     <!-- General -->
     <string name="app_name">GithubList</string>
     <string name="general_error_message">Something went wrong! :(</string>
+    <string name="general_limit_requests">API rate limit exceeded.</string>
+
 
     <!-- Main -->
     <string name="title_search_view_github">Search</string>
@@ -15,5 +17,6 @@
     <string name="icon_gists_description">Gists</string>
     <string name="icon_followers_description">Followers</string>
     <string name="icon_stars_description">Stars</string>
+    <string name="general_error_connection">Verify your connection.</string>
 
 </resources>

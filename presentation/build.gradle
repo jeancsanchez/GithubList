@@ -86,6 +86,9 @@ dependencies {
     implementation deps.circleImageView
     implementation deps.picasso
 
+    // Dialogs
+    implementation deps.materialDialogs
+
     // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

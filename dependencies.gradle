@@ -38,6 +38,9 @@ def HAWK_VERSION = '2.0.1'
 def CIRCLE_IMAGE_VERSION = '2.2.0'
 def PICASSO_VERSION = '2.5.2'
 
+// DIALOGS:
+def MATERIAL_DIALOGS_VERSION = '0.9.6.0'
+
 ext.deps = [
 
         // Android Support:
@@ -70,8 +73,11 @@ ext.deps = [
         hawk               : "com.orhanobut:hawk:$HAWK_VERSION",
 
         // Images
-        circleImageView     : "de.hdodenhof:circleimageview:$CIRCLE_IMAGE_VERSION",
-        picasso             : "com.squareup.picasso:picasso:$PICASSO_VERSION",
+        circleImageView    : "de.hdodenhof:circleimageview:$CIRCLE_IMAGE_VERSION",
+        picasso            : "com.squareup.picasso:picasso:$PICASSO_VERSION",
+
+        // Dialogs
+        materialDialogs    : "com.afollestad.material-dialogs:core:$MATERIAL_DIALOGS_VERSION",
 
         // Tests:
         jUnit              : "junit:junit:$JUNIT_VERSION",

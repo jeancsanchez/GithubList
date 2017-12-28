@@ -81,7 +81,7 @@
         android:tint="@color/colorPrimary"
         android:contentDescription="@string/icon_stars_description"
         app:layout_constraintBottom_toBottomOf="@+id/txtDetailGists"
-        app:layout_constraintEnd_toStartOf="@+id/txtDetailFollowers"
+        app:layout_constraintEnd_toStartOf="@+id/txtDetailStars"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/txtDetailGists"
         app:layout_constraintTop_toTopOf="@+id/txtDetailGists"
@@ -109,11 +109,11 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:contentDescription="@string/icon_followers_description"
-        app:layout_constraintBottom_toBottomOf="@+id/txtDetailFollowers"
-        app:layout_constraintEnd_toStartOf="@+id/txtDetailFollowing"
+        app:layout_constraintBottom_toBottomOf="@+id/txtDetailStars"
+        app:layout_constraintEnd_toStartOf="@+id/txtDetailFollowers"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/txtDetailFollowers"
-        app:layout_constraintTop_toTopOf="@+id/txtDetailFollowers"
+        app:layout_constraintStart_toEndOf="@+id/txtDetailStars"
+        app:layout_constraintTop_toTopOf="@+id/txtDetailStars"
         app:srcCompat="@drawable/ic_world" />
 
     <ImageView
@@ -154,7 +154,7 @@
         tools:text="1000" />
 
     <TextView
-        android:id="@+id/txtDetailFollowers"
+        android:id="@+id/txtDetailStars"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -165,7 +165,7 @@
         tools:text="1000" />
 
     <TextView
-        android:id="@+id/txtDetailFollowing"
+        android:id="@+id/txtDetailFollowers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

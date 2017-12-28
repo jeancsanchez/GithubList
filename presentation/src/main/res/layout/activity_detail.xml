@@ -72,23 +72,25 @@
         android:id="@+id/imageView2"
         android:layout_width="@dimen/spacing_larger"
         android:layout_height="@dimen/spacing_larger"
+        android:tint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/txtDetailGists"
         app:layout_constraintEnd_toStartOf="@+id/txtDetailFollowers"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/txtDetailGists"
         app:layout_constraintTop_toTopOf="@+id/txtDetailGists"
-        app:srcCompat="@android:drawable/star_big_off" />
+        app:srcCompat="@drawable/ic_world" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="@dimen/spacing_larger"
         android:layout_height="@dimen/spacing_larger"
+        android:tint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="@+id/txtDetailRepos"
         app:layout_constraintEnd_toStartOf="@+id/txtDetailGists"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/txtDetailRepos"
         app:layout_constraintTop_toTopOf="@+id/txtDetailRepos"
-        app:srcCompat="@android:drawable/star_big_off" />
+        app:srcCompat="@drawable/ic_code" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -99,17 +101,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/txtDetailFollowers"
         app:layout_constraintTop_toTopOf="@+id/txtDetailFollowers"
-        app:srcCompat="@android:drawable/star_big_off" />
+        app:srcCompat="@drawable/ic_world" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="@dimen/spacing_larger"
         android:layout_height="@dimen/spacing_larger"
         android:layout_marginEnd="@dimen/spacing_normal"
+        android:layout_marginLeft="@dimen/spacing_large"
         android:layout_marginRight="@dimen/spacing_normal"
         android:layout_marginStart="@dimen/spacing_large"
-        android:layout_marginLeft="@dimen/spacing_large"
         android:layout_marginTop="@dimen/spacing_normal"
+        android:tint="@color/colorPrimaryDark"
         app:layout_constraintEnd_toStartOf="@+id/txtDetailRepos"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"

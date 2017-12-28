@@ -2,6 +2,7 @@ package com.github.jeancarlos.githublist.features.main
 
 import com.github.jeancarlos.githublist.base.di.scopes.PerActivity
 import com.github.jeancarlos.githublist.domain.interactors.ListUsersUc
+import com.github.jeancarlos.githublist.domain.interactors.SearchUsersUc
 import javax.inject.Inject
 
 /**
@@ -14,7 +15,8 @@ import javax.inject.Inject
 @PerActivity
 class MainPresenter
 @Inject constructor(
-        private val listUsersUc: ListUsersUc
+        private val listUsersUc: ListUsersUc,
+        private val searchUsersUc: SearchUsersUc
 ) : MainContract.Presenter {
 
     override var view: MainContract.View? = null
@@ -36,6 +38,27 @@ class MainPresenter
                 onError = {
                     view?.hideLoading()
                     it?.let { view?.showError(it) } ?: view?.showNoContent()
+                }
+        )
+    }
+
+    override fun onSearch(query: String?) {
+        view?.showLoading()
+
+        searchUsersUc.execute(
+                params = query,
+                onNext = {
+                    view?.hideLoading()
+
+                    if (it.isEmpty()) {
+                        view?.showNoContent()
+                    } else {
+                        view?.showSearchResult(it)
+                    }
+                },
+                onError = {
+                    view?.hideLoading()
+                    view?.showNoContent()
                 }
         )
     }

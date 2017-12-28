@@ -12,6 +12,7 @@ import com.github.jeancarlos.githublist.R;
 import com.github.jeancarlos.githublist.domain.model.User;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -27,50 +28,52 @@ import static java.util.Collections.emptyList;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
-    private Context context;
-    private List<User> users = emptyList();
+    private Context mContext;
+    private List<User> mUsers = emptyList();
+    private ArrayList<User> mCachedUsers = new ArrayList<>();
 
     public UserAdapter(Context context) {
-        this.context = context;
+        mContext = context;
     }
 
     /**
-     * Initializes the users list.
+     * Initializes the mUsers list.
      *
-     * @param users the users list.
+     * @param users the mUsers list.
      */
     public void setUpItems(List<User> users) {
-        this.users = users;
+        mUsers = users;
         notifyDataSetChanged();
     }
 
     /**
-     * Adds an users list to the existent users list.
+     * Adds an mUsers list to the existent mUsers list.
      *
-     * @param users The new users list.
+     * @param users The new mUsers list.
      */
     public void addItems(List<User> users) {
-        if (!this.users.isEmpty()) {
+        if (!mUsers.isEmpty()) {
             int beforeAddIndex = users.size() - 1;
-            this.users.addAll(users);
+            mUsers.addAll(users);
             notifyItemRangeChanged(beforeAddIndex, users.size() - 1);
         } else {
-            this.users.addAll(users);
+            mUsers.addAll(users);
             notifyDataSetChanged();
         }
     }
 
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_user, parent, false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.item_user, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        User user = users.get(position);
+        User user = mUsers.get(position);
 
-        Picasso.with(context)
+        Picasso.with(mContext)
                 .load(user.getAvatarUrl())
                 .placeholder(R.drawable.ic_github_default_black)
                 .into(holder.imgItemUserPic);
@@ -81,13 +84,32 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             holder.txtUserName.setText(user.getLogin());
         }
 
-        holder.txtItemUserNick.setText(context.getString(R.string.item_user_nick, user.getLogin()));
+        holder.txtItemUserNick.setText(mContext.getString(R.string.item_user_nick, user.getLogin()));
     }
 
     @Override
     public int getItemCount() {
-        return users.size();
+        return mUsers.size();
     }
+
+    /**
+     * Caches the current items
+     */
+    public void cacheCurrentItems() {
+        mCachedUsers.addAll(mUsers);
+        mUsers.clear();
+    }
+
+    /**
+     * Loads the cached items.
+     */
+    public void loadCachedItems() {
+        mUsers.clear();
+        mUsers.addAll(mCachedUsers);
+        mCachedUsers.clear();
+        notifyDataSetChanged();
+    }
+
 
     class ViewHolder extends RecyclerView.ViewHolder {
 

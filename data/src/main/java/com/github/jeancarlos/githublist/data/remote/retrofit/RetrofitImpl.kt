@@ -52,6 +52,7 @@ class RetrofitImpl
 
     override fun searchForUser(query: String, page: Int): Observable<List<DUser>> {
         return service.searchUsers(query = query, since = page)
+                .map { it.result }
     }
 
     override fun userRepositories(nickname: String, page: Int): Observable<List<DGithubRepo>> {

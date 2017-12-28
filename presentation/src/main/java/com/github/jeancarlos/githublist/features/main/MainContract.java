@@ -25,6 +25,13 @@ public interface MainContract {
         void showUsers(List<User> users);
 
         /**
+         * Shows the search result.
+         *
+         * @param users the user list.
+         */
+        void showSearchResult(List<User> users);
+
+        /**
          * Shows no content message.
          */
         void showNoContent();
@@ -33,8 +40,16 @@ public interface MainContract {
     interface Presenter extends BasePresenter<View> {
 
         /**
-         * Notify the resume state to presenter.
+         * Notifies the resume state to presenter.
          */
         void onLoadUsers();
+
+
+        /**
+         * Notifies when a search was fired.
+         *
+         * @param query The query search.
+         */
+        void onSearch(String query);
     }
 }

@@ -20,14 +20,18 @@
             android:authorities="br.com.jeancarlos.githublist.util.SuggestionProvider" />
 
         <activity
-            android:name="com.github.jeancarlos.githublist.features.main.MainActivity"
-            android:launchMode="singleTop">
+            android:name=".features.splash.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
 
+        <activity
+            android:name="com.github.jeancarlos.githublist.features.main.MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>

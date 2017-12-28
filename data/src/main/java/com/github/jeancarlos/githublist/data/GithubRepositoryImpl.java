@@ -16,6 +16,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import kotlin.Unit;
 
 /**
  * This class represents an implementation of {@link GithubRepository}
@@ -78,6 +79,11 @@ public class GithubRepositoryImpl implements GithubRepository {
                     saveNextReposPage(dGithubRepos);
                     return dGithubRepoMapper.transform(dGithubRepos);
                 });
+    }
+
+    @Override
+    public Observable<Unit> clearData() {
+        return localProvider.clear();
     }
 
     /**

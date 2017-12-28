@@ -6,6 +6,7 @@ import com.github.jeancarlos.githublist.domain.model.User;
 import java.util.List;
 
 import io.reactivex.Observable;
+import kotlin.Unit;
 
 /**
  * This class represents the Github repository.
@@ -44,4 +45,9 @@ public interface GithubRepository {
      * @param nickname The user nickname.
      */
     Observable<List<GithubRepo>> userRepositories(String nickname);
+
+    /**
+     * Clear the application data.
+     */
+    Observable<Unit> clearData();
 }

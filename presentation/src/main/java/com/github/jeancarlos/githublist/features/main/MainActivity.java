@@ -246,4 +246,10 @@ public class MainActivity extends BaseActivity implements MainContract.View, Sea
         super.onResume();
         presenter.onLoadUsers();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
+    }
 }

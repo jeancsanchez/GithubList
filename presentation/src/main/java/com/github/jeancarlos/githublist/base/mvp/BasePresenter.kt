@@ -10,4 +10,9 @@ package com.github.jeancarlos.githublist.base.mvp
 interface BasePresenter<VIEW : BaseView> {
 
     var view: VIEW?
+
+    /**
+     * Notifies the on destroy state.
+     */
+    fun onDestroy()
 }

@@ -62,4 +62,9 @@ class MainPresenter
                 }
         )
     }
+
+    override fun onDestroy() {
+        listUsersUc.dispose()
+        searchUsersUc.dispose()
+    }
 }

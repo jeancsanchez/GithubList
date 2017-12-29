@@ -32,6 +32,11 @@ dependencies {
     // Tests:
     testImplementation deps.jUnit
     testImplementation deps.mockito_core
+    testImplementation(deps.mockitoKotlin, {
+        exclude group: 'org.jetbrains.kotlin'
+    })
+
+    // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {

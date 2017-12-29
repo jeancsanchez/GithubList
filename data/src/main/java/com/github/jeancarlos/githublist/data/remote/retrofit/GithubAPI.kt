@@ -2,7 +2,7 @@ package com.github.jeancarlos.githublist.data.remote.retrofit
 
 import com.github.jeancarlos.githublist.data.models.DGithubRepo
 import com.github.jeancarlos.githublist.data.models.DUser
-import com.github.jeancarlos.githublist.data.remote.Pojos.SearchPojo
+import com.github.jeancarlos.githublist.data.remote.pojos.SearchPojo
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path

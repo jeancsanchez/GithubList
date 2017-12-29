@@ -2,7 +2,7 @@
 <searchable xmlns:android="http://schemas.android.com/apk/res/android"
     android:hint="@string/title_search_view_github"
     android:label="@string/app_name"
-    android:searchSuggestAuthority="br.com.jeancarlos.github.util.SuggestionProvider"
+    android:searchSuggestAuthority="com.github.jeancarlos.githublist.utils.SuggestionProvider"
     android:searchSuggestIntentAction="android.intent.action.VIEW"
     android:searchSuggestSelection=" ?"
     android:voiceSearchMode="showVoiceSearchButton|launchRecognizer" />

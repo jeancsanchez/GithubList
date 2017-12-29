@@ -236,12 +236,15 @@ public class MainActivity extends BaseActivity implements MainContract.View, Sea
         SearchRecentSuggestions suggestions = new SearchRecentSuggestions(this,
                 SuggestionProvider.AUTHORITY, SuggestionProvider.MODE);
 
-        // Clear the suggestions list if the list is greater then 5
+        // Clear the suggestions list if the list is greater than 5
         if (mSearchView.getSuggestionsAdapter().getCount() > 5) {
             suggestions.clearHistory();
         }
 
-        suggestions.saveRecentQuery(query, null);
+        // Only save queries with length longer than 3.
+        if (!query.isEmpty() && query.length() > 3) {
+            suggestions.saveRecentQuery(query, null);
+        }
     }
 
     @Override

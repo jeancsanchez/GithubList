@@ -17,7 +17,7 @@ import android.content.SearchRecentSuggestionsProvider;
  */
 
 public class SuggestionProvider extends SearchRecentSuggestionsProvider {
-    public final static String AUTHORITY = "br.com.jeancarlos.githublist.util.SuggestionProvider";
+    public final static String AUTHORITY = "com.github.jeancarlos.githublist.utils.SuggestionProvider";
     public final static int MODE = DATABASE_MODE_QUERIES;
 
     public SuggestionProvider() {

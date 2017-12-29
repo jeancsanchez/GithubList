@@ -9,14 +9,14 @@ package com.github.jeancarlos.githublist.domain.model
 open class GithubRepo(
         val id: Int = -1,
         val name: String = "",
-        open var fullName: String? = "",
+        val fullName: String? = "",
         val private: Boolean = false,
         val description: String? = "",
         val fork: Boolean = false,
         val url: String? = "",
-        open var stargazersCount: Int = 0,
-        open var watchersCount: Int = 0,
+        val stargazersCount: Int = 0,
+        val watchersCount: Int = 0,
         val language: String? = "",
-        open var forksCount: Int = 0,
-        open var openIssuesCount: Int = 0
+        val forksCount: Int = 0,
+        val openIssuesCount: Int = 0
 )

@@ -1,4 +1,4 @@
-package com.github.jeancarlos.githublist.data.remote.Pojos
+package com.github.jeancarlos.githublist.data.remote.pojos
 
 import com.github.jeancarlos.githublist.data.models.DUser
 import com.google.gson.annotations.SerializedName

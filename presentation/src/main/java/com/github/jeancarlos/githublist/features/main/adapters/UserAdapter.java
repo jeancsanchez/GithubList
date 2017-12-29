@@ -53,6 +53,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
      * @param users the mUsers list.
      */
     public void setUpItems(List<User> users) {
+        mUsers.clear();
         mUsers = users;
         notifyDataSetChanged();
     }

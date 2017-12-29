@@ -17,7 +17,7 @@
 
         <provider
             android:name=".utils.SuggestionProvider"
-            android:authorities="br.com.jeancarlos.githublist.util.SuggestionProvider" />
+            android:authorities="com.github.jeancarlos.githublist.utils.SuggestionProvider" />
 
         <activity
             android:name=".features.splash.SplashActivity"

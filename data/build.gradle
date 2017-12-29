@@ -45,6 +45,7 @@ dependencies {
     // Tests:
     testImplementation deps.jUnit
     testImplementation deps.mockito_core
+    testImplementation deps.mockitoKotlin
     testImplementation deps.powermock
     testImplementation(deps.powermockito2, {
         exclude group: 'org.jetbrains.kotlin'

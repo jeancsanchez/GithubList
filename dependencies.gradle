@@ -17,6 +17,7 @@ def POWERMOCK_VERSION = '1.7.1'
 
 // ANDROID UNIT TESTS:
 def MOCKITO_CORE_VERSION = '2.8.9'
+def MOCKITO_KOTLIN_VERSION = '1.5.0'
 
 // DEPENDENCY INJECTION:
 def DAGGER_VERSION = '2.11'
@@ -88,5 +89,6 @@ ext.deps = [
         hamcrest_all       : "org.hamcrest:hamcrest-all:$HAMCREST_ALL_VERSION",
         powermock          : "org.powermock:powermock-module-junit4:$POWERMOCK_VERSION",
         powermockito       : "org.powermock:powermock-api-mockito:$POWERMOCK_VERSION",
-        powermockito2      : "org.powermock:powermock-api-mockito2:$POWERMOCK_VERSION"
+        powermockito2      : "org.powermock:powermock-api-mockito2:$POWERMOCK_VERSION",
+        mockitoKotlin      :     "com.nhaarman:mockito-kotlin:$MOCKITO_KOTLIN_VERSION",
 ]

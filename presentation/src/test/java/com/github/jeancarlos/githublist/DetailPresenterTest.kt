@@ -45,19 +45,6 @@ class DetailPresenterTest : BasePresenterTest() {
 
 
     companion object {
-        @JvmField
-        val FAKE_DUSER = DUser(
-                id = 1,
-                name = "Fake DUser",
-                login = "@fakelogin",
-                publicRepos = 10,
-                publicGists = 10,
-                followers = 10,
-                following = 10
-        )
-
-        @JvmField
-        val FAKE_DUSER_LIST = listOf(FAKE_DUSER)
 
         @JvmField
         val FAKE_USER = User(

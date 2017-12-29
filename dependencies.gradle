@@ -84,11 +84,12 @@ ext.deps = [
         // Tests:
         jUnit              : "junit:junit:$JUNIT_VERSION",
         espresso           : "com.android.support.test.espresso:espresso-core:$ESPRESSO_VERSION",
+        espressoContrib    : "com.android.support.test.espresso:espresso-contrib:$ESPRESSO_VERSION",
         mockito_all        : "org.mockito:mockito-all:$MOCKITO_ALL_VERSION",
         mockito_core       : "org.mockito:mockito-core:$MOCKITO_CORE_VERSION",
         hamcrest_all       : "org.hamcrest:hamcrest-all:$HAMCREST_ALL_VERSION",
         powermock          : "org.powermock:powermock-module-junit4:$POWERMOCK_VERSION",
         powermockito       : "org.powermock:powermock-api-mockito:$POWERMOCK_VERSION",
         powermockito2      : "org.powermock:powermock-api-mockito2:$POWERMOCK_VERSION",
-        mockitoKotlin      :     "com.nhaarman:mockito-kotlin:$MOCKITO_KOTLIN_VERSION",
+        mockitoKotlin      : "com.nhaarman:mockito-kotlin:$MOCKITO_KOTLIN_VERSION",
 ]

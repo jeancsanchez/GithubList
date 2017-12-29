@@ -14,7 +14,7 @@ import io.reactivex.Observable;
  * Gets the user details use case.
  *
  * @author Jean Carlos (Github: @jeancsanchez)
- * @date 26/12/17.
+ * @date 29/12/17.
  * Jesus loves you.
  */
 @SuppressWarnings("SpellCheckingInspection")
